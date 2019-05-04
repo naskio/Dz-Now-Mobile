@@ -1,0 +1,35 @@
+<resources>
+    <!--LIGHT APP THEME-->
+    <style name="LightTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <!--CUSTOM COLORS-->
+        <item name="colorPrimary">@color/colorBlueSelected</item>
+        <item name="colorAccent">@color/colorBlueReadMore</item>
+        <!--<item name="colorPrimaryDark">@color/colorWhite</item>-->
+
+        <!--LIGHT STATUS BAR-->
+        <item name="android:statusBarColor">@color/colorWhite</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <!--android:theme="@style/ThemeOverlay.AppCompat.ActionBar"-->
+    <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
+    <!--LIGHT TOOLBAR-->
+    <style name="LightActionBar" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:background">@color/colorWhite</item>
+        <item name="android:titleTextStyle">@style/Theme.AppTheme.ActionBar.Light.TitleTextStyle</item>
+    </style>
+
+    <style name="Theme.AppTheme.ActionBar.Light.TitleTextStyle"
+           parent="android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/colorGrayCardTitle</item>
+    </style>
+
+    <style name="LightTheme.ToolBarHomeTextTitle" parent="TextAppearance.AppCompat.Headline">
+        <item name="android:textColor">@color/colorGrayCardTitle</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+</resources>
