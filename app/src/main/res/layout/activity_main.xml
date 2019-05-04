@@ -1,48 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<android.support.design.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:minHeight="@dimen/toolbar_height"
+        android:background="@color/colorWhiteBackground"
+    >
 
     <!--TOOLBAR-->
-    <android.support.v7.widget.Toolbar
-            android:id="@+id/my_toolbar"
-            android:layout_height="@dimen/toolbar_height"
+    <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:background="@color/colorWhite"
-            android:elevation="4dp"
-            android:theme="@style/LightActionBar"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/app_name"
-                style="@style/LightTheme.ToolBarHomeTextTitle"
-                android:layout_gravity="center"
-                android:id="@+id/toolbar_title"/>
+            android:layout_height="wrap_content">
 
-        <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_outline_settings_24px"
-                android:layout_gravity="end"
-                android:layout_marginEnd="8dp"
-                android:contentDescription="@string/button_description_settings"
-                style="@style/Widget.AppCompat.ActionButton"
-        />
-    </android.support.v7.widget.Toolbar>
+        <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/navigation_bottom_height"
+                android:background="@color/colorWhite"
+                android:theme="@style/LightActionBar"
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+        >
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    style="@style/LightTheme.ToolBarHomeTextTitle"
+                    android:layout_gravity="center"
+                    android:id="@+id/toolbar_title"/>
+
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_outline_settings_24px"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="@string/button_description_settings"
+                    style="@style/Widget.AppCompat.ActionButton"
+            />
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <!--<FrameLayout-->
+    <!--android:id="@+id/fragment_placeholder"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+    <!--&gt;-->
+
+    <!--<android.support.v4.view.ViewPager-->
+    <!--android:id="@+id/slide_viewpager"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"/>-->
+
+    <!--</FrameLayout>-->
 
     <!--CONTENT-->
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
-            app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/nav_view" android:layout_height="match_parent"
-            android:layout_marginTop="56dp" android:layout_marginBottom="56dp">
+            android:layout_marginBottom="@dimen/navigation_bottom_height"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
         <!--CONTAINER-->
         <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
@@ -50,28 +73,26 @@
                 android:background="@color/colorGrayCardIcon">
             <!--TEXT-->
             <TextView
-                    android:layout_width="wrap_content" android:layout_height="1200dp"
+                    android:layout_width="wrap_content" android:layout_height="2000dp"
                     android:text="@string/title_for_you" app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
         </android.support.constraint.ConstraintLayout>
-    </ScrollView>
+
+    </android.support.v4.widget.NestedScrollView>
 
     <!--NAVIGATION BOTTOM-->
     <android.support.design.widget.BottomNavigationView
             android:id="@+id/nav_view"
             android:layout_width="match_parent"
             android:layout_height="@dimen/navigation_bottom_height"
-            android:layout_marginEnd="0dp"
-            android:layout_marginStart="0dp"
+            android:layout_gravity="bottom"
             android:background="?android:attr/windowBackground"
             app:labelVisibilityMode="labeled"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
             app:itemIconSize="24dp"
             app:itemIconTint="@xml/color_bottom_navigation_item"
             app:itemTextColor="@xml/color_bottom_navigation_item"
             app:menu="@menu/bottom_nav_menu"/>
 
-</android.support.constraint.ConstraintLayout>
+</android.support.design.widget.CoordinatorLayout>
+
