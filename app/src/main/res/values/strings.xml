@@ -12,4 +12,7 @@
     <string name="tv_sub_item_source">Le Buteur</string>
     <string name="tv_sub_item_date">13/06/2019 09:55</string>
     <string name="tv_sub_item_time">5 min de lecture</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
