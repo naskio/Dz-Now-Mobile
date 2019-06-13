@@ -4,4 +4,5 @@
     <dimen name="toolbar_height">56dp</dimen>
     <dimen name="navigation_bottom_height">56dp</dimen>
     <dimen name="fragment_margin_bottom">112dp</dimen>
+    <dimen name="splash_screen_icon">128dp</dimen>
 </resources>
