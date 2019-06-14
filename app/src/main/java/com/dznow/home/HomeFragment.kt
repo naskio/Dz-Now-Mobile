@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.dznow.R
+import com.dznow.category.CategoryDataFactory
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,7 +30,7 @@ class HomeFragment : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_home, container, false)
         recyclerView = rootView.findViewById(R.id.rv_item) as RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(activity)
-        recyclerView.adapter = CategoryAdapter(CategoryDataFactory.getParents(1))
+        recyclerView.adapter = ItemAdapter(CategoryDataFactory.getAll(1))
         return rootView
     }
 }

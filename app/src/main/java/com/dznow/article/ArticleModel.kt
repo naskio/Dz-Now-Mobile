@@ -1,4 +1,7 @@
-package com.dznow.models
+package com.dznow.article
+
+import com.dznow.category.CategoryModel
+import com.dznow.source.SourceModel
 
 data class ArticleModel (
     val id : Int,

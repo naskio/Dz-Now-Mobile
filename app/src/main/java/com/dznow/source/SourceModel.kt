@@ -1,10 +1,13 @@
-package com.dznow.models
+package com.dznow.source
 
-data class CategoryModel (
+import com.dznow.article.ArticleModel
+
+data class SourceModel (
     val id : Int,
     val name : String,
-    val background_url : String,
+    val logo_url : String,
     val background_color : String,
     val text_color : String,
+    val website : String,
     val articles : List<ArticleModel>?
 )

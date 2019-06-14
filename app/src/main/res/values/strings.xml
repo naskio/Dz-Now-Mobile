@@ -5,6 +5,8 @@
     <string name="title_browse">Parcourir</string>
     <string name="title_bookmarks">Signets</string>
     <string name="button_description_settings">Settings</string>
+    <string name="title_category">Par catégorie</string>
+    <string name="title_source">Par source</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
