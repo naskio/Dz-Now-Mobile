@@ -1,4 +1,4 @@
-package com.dznow.article
+package com.dznow.home
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -6,11 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.dznow.R
-import kotlinx.android.synthetic.main.layout_article.view.*
+import com.dznow.models.ArticleModel
+import kotlinx.android.synthetic.main.layout_home_article.view.*
 
 class ArticleAdapter (private val articles : List<ArticleModel>) : RecyclerView.Adapter<ArticleAdapter.ViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v =  LayoutInflater.from(parent.context).inflate(R.layout.layout_article,parent,false)
+        val v =  LayoutInflater.from(parent.context).inflate(R.layout.layout_home_article,parent,false)
         return ViewHolder(v)
     }
 
@@ -19,11 +20,11 @@ class ArticleAdapter (private val articles : List<ArticleModel>) : RecyclerView.
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val child = articles[position]
-        holder.source.text = child.source
-        holder.date.text = child.date
-        holder.title.text = child.title
-        holder.time.text = child.time
+        val article = articles[position]
+        holder.source.text = article.source.name
+        holder.date.text = article.created_at
+        holder.title.text = article.title
+        holder.time.text = article.minutes_read.toString()
     }
 
     inner class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){

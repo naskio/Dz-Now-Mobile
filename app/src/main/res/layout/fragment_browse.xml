@@ -2,7 +2,7 @@
 <android.support.v4.widget.NestedScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        tools:context=".BrowseFragment"
+        tools:context=".browse.BrowseFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorWhite"
@@ -15,13 +15,6 @@
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1000dp"
-                android:text="@string/title_browse"
-        />
-
-        <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1000dp"
-                android:gravity="bottom"
                 android:text="@string/title_browse"
         />
     </LinearLayout>

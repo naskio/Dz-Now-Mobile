@@ -1,4 +1,4 @@
-package com.dznow
+package com.dznow.home
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -7,8 +7,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.dznow.category.CategoryAdapter
-import com.dznow.category.CategoryDataFactory
+import com.dznow.R
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

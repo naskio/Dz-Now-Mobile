@@ -5,6 +5,8 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v7.app.AppCompatActivity
+import com.dznow.browse.BrowseFragment
+import com.dznow.home.HomeFragment
 
 // for using ids directly without findViewById
 import kotlinx.android.synthetic.main.activity_main.*;

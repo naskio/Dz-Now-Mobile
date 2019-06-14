@@ -1,4 +1,4 @@
-package com.dznow.category
+package com.dznow.home
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -8,15 +8,15 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.dznow.R
-import com.dznow.article.ArticleAdapter
-import kotlinx.android.synthetic.main.layout_category.view.*
+import com.dznow.models.CategoryModel
+import kotlinx.android.synthetic.main.layout_home_category.view.*
 
 class CategoryAdapter(private val categories : List<CategoryModel>) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>(){
 
     private val viewPool = RecyclerView.RecycledViewPool()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.layout_category,parent,false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.layout_home_category,parent,false)
         return ViewHolder(v)
     }
 
@@ -26,10 +26,10 @@ class CategoryAdapter(private val categories : List<CategoryModel>) : RecyclerVi
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val category = categories[position]
-        holder.textView.text = category.title
+        holder.textView.text = category.name
         holder.recyclerView.apply {
             layoutManager = LinearLayoutManager(holder.recyclerView.context, LinearLayout.VERTICAL, false)
-            adapter = ArticleAdapter(category.articles)
+            adapter = category.articles?.let { ArticleAdapter(it) }
             setRecycledViewPool(viewPool)
         }
     }
