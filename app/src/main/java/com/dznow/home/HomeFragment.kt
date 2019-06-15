@@ -1,4 +1,4 @@
-package com.dznow
+package com.dznow.home
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.dznow.category.CategoryAdapter
+import com.dznow.R
 import com.dznow.category.CategoryDataFactory
 
 // TODO: Rename parameter arguments, choose names that match
@@ -30,7 +30,7 @@ class HomeFragment : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_home, container, false)
         recyclerView = rootView.findViewById(R.id.rv_item) as RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(activity)
-        recyclerView.adapter = CategoryAdapter(CategoryDataFactory.getParents(1))
+        recyclerView.adapter = ItemAdapter(CategoryDataFactory.getAll(1))
         return rootView
     }
 }

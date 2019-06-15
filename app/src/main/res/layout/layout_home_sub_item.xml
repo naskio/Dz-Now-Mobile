@@ -17,7 +17,7 @@
             <ImageView
                     android:id="@+id/img_sub_item"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="@dimen/article_cover"
                     android:background="@color/cardview_dark_background"
                     android:src="@drawable/ic_launcher_foreground"/>
             <RelativeLayout
