@@ -10,6 +10,8 @@ import com.dznow.home.HomeFragment
 
 // for using ids directly without findViewById
 import kotlinx.android.synthetic.main.activity_main.*;
+import okhttp3.*
+import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
 

@@ -9,7 +9,7 @@ object ArticleDataFactory {
         val articles = mutableListOf<ArticleModel>()
         for (i in 0..count) {
             val source =
-                SourceModel(i, "source $i", "source $i", "source $i", "source $i", "source $i", null)
+                SourceModel(i, "sourceName $i", "sourceName $i", "sourceName $i", "sourceName $i", "sourceName $i", null)
             val category =
                 CategoryModel(i, "category $i", "category $i", "category $i", "category $i", null)
             val article = ArticleModel(
