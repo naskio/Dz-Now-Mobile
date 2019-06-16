@@ -8,11 +8,11 @@ object SourceDataFactory {
         for (i in 0..count) {
             val item = SourceModel(
                 i,
-                "source $i",
-                "source $i",
-                "source $i",
-                "source $i",
-                "source $i",
+                "sourceName $i",
+                "sourceName $i",
+                "sourceName $i",
+                "sourceName $i",
+                "sourceName $i",
                 null
             )
             items.add(item)
