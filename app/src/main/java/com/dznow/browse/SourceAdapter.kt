@@ -4,10 +4,13 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.dznow.R
 import com.dznow.source.SourceModel
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.layout_browse_item.view.*
 
 class SourceAdapter(private val sources: List<SourceModel>) : RecyclerView.Adapter<SourceAdapter.ViewHolder>() {
 
@@ -17,17 +20,21 @@ class SourceAdapter(private val sources: List<SourceModel>) : RecyclerView.Adapt
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.targetName.text = sources[position].name
+        val source = sources[position]
+        holder.targetName.text = source.name
+        Picasso.get().load(source.logo_url).into(holder.sourceCover)
     }
 
     override fun getItemCount() = sources.size
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         var targetName: TextView
+        var sourceCover : ImageView
 
         init {
             itemView.setOnClickListener(this)
-            targetName = itemView.findViewById<View>(R.id.target_name) as TextView
+            targetName = itemView.target_name
+            sourceCover = itemView.tv_item_cover
         }
 
         override fun onClick(view: View) {
