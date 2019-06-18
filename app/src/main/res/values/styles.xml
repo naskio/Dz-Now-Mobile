@@ -39,4 +39,18 @@
         <item name="android:fontFamily">sans-serif</item>
     </style>
 
+    <style name="CategoryTextTitle" parent="@android:style/TextAppearance.Small">
+        <item name="android:textColor">@color/colorGrayCardTitle</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="ArticlePreviewTextTitle" parent="@android:style/TextAppearance.Small">
+        <item name="android:textColor">@color/colorGrayCardTitle</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
 </resources>

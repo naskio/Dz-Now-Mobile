@@ -12,8 +12,7 @@ import com.dznow.activities.ArticleActivity
 import com.dznow.models.ArticleModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.layout_article_preview.view.*
-import com.dznow.services.helpers.TimeHelper
-import java.util.*
+import com.dznow.utils.timeSince
 import kotlin.collections.ArrayList
 
 class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
@@ -35,7 +34,7 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
         val article = articles[position]
         holder.sourceName.text = article.source?.name
         // getting string that describes how much time ago since the creation of the article
-        holder.createdAt.text = TimeHelper().getElapsedTime(article.created_at)
+        holder.createdAt.text = timeSince(article.created_at)
         holder.title.text = article.title
         holder.minutesRead.text = article.minutes_read.toString()
         Picasso.get().load(article.cover_url).into(holder.articleCover)
@@ -53,11 +52,11 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
 
         init {
             itemView.setOnClickListener(this)
-            sourceName = itemView.tv_article_source_name
-            createdAt = itemView.tv_article_created_at
-            title = itemView.tv_article_title
-            minutesRead = itemView.tv_article_minutes_read
-            articleCover = itemView.tv_article_cover
+            sourceName = itemView.textViewArticleSource
+            createdAt = itemView.textViewArticleTimeSince
+            title = itemView.textViewArticleTitle
+            minutesRead = itemView.textViewArticleMinutesRead
+            articleCover = itemView.imageViewArticleCover
         }
 
         override fun onClick(view: View) {

@@ -44,7 +44,7 @@ class BrowseFragment : Fragment() {
         // Inflate the layout for this fragment
         val rootView = inflater.inflate(R.layout.fragment_browse, container, false)
         // categories recycler view
-        categoriesRecyclerView = rootView.findViewById(R.id.rv_categories) as RecyclerView
+        categoriesRecyclerView = rootView.findViewById(R.id.recyclerViewCategories) as RecyclerView
         categoriesRecyclerView.setHasFixedSize(true)
         categoriesRecyclerView.layoutManager = GridLayoutManager(activity, 2)
         // categoriesRecyclerView.adapter = CategoryPreviewAdapter(CategoryDataFactory.getCategories(4))

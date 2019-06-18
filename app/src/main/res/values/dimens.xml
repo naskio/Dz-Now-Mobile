@@ -6,4 +6,9 @@
     <dimen name="fragment_margin_bottom">112dp</dimen>
     <dimen name="splash_screen_icon">128dp</dimen>
     <dimen name="article_cover">200dp</dimen>
+    <dimen name="margin_x1">8dp</dimen>
+    <dimen name="margin_x2">16dp</dimen>
+    <dimen name="margin_x3">24dp</dimen>
+    <dimen name="margin_x4">32dp</dimen>
+    <dimen name="margin_x5">40dp</dimen>
 </resources>

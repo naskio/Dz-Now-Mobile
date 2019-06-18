@@ -79,12 +79,6 @@ class MainActivity : AppCompatActivity() {
         browseFragment = BrowseFragment()
         bookmarksFragment = BookmarksFragment()
 
-        // TODO: display the data (recycler view)
-//        getActivity()?.runOnUiThread {
-//            recyclerView.adapter = CategoryPreviewAdapter(categories)
-//        }
-
-
         // fragments navigation logic
         fManager = supportFragmentManager
         active = homeFragment

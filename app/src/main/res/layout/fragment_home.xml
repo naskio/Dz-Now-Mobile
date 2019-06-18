@@ -12,8 +12,25 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView
+                    style="@style/CategoryTextTitle"
+                    android:layout_marginTop="@dimen/margin_x3"
+                    android:layout_marginBottom="@dimen/margin_x3"
+                    android:layout_marginStart="@dimen/margin_x2"
+                    android:layout_marginEnd="@dimen/margin_x2"
+                    android:id="@+id/textViewLatestTitle"
+                    android:text="@string/title_latest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerViewLatest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_below="@+id/textViewLatestTitle"/>
+        </RelativeLayout>
+
         <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv_item"
+                android:id="@+id/recyclerViewCategories"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
     </LinearLayout>

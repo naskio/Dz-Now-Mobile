@@ -4,10 +4,15 @@
     <string name="title_for_you">Pour vous</string>
     <string name="title_browse">Parcourir</string>
     <string name="title_bookmarks">Signets</string>
+    <string name="title_latest">Dernières actualités</string>
     <string name="button_description_settings">Settings</string>
     <string name="button_bookmarks">Bookmarks</string>
     <string name="title_category">Par catégorie</string>
     <string name="title_source">Par source</string>
+    <string name="image_description_cover">Article Cover</string>
+
+
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -11,12 +11,14 @@ import com.dznow.R
 import com.dznow.recyclers.CategoryPreviewAdapter
 import com.dznow.models.ArticleModel
 import com.dznow.models.CategoryModel
+import com.dznow.recyclers.ArticlePreviewAdapter
 
 class HomeFragment : Fragment() {
 
     private lateinit var latest: ArrayList<ArticleModel>
     private lateinit var categories: ArrayList<CategoryModel>
-    private lateinit var recyclerView: RecyclerView
+    private lateinit var categoriesRecyclerView: RecyclerView
+    private lateinit var latestRecyclerView: RecyclerView
 
     companion object {
         @JvmStatic
@@ -36,11 +38,18 @@ class HomeFragment : Fragment() {
         this.arguments?.getParcelableArrayList<ArticleModel>("latest")?.let { latest = it }
         this.arguments?.getParcelableArrayList<CategoryModel>("categories")?.let { categories = it }
 
-        // displaying the data in recycler view
         val rootView = inflater.inflate(R.layout.fragment_home, container, false)
-        recyclerView = rootView.findViewById(R.id.rv_item) as RecyclerView
-        recyclerView.layoutManager = LinearLayoutManager(activity)
-        recyclerView.adapter = CategoryPreviewAdapter(categories)
+
+        // displaying latest
+        latestRecyclerView = rootView.findViewById(R.id.recyclerViewLatest) as RecyclerView
+        latestRecyclerView.layoutManager = LinearLayoutManager(activity)
+        latestRecyclerView.adapter = ArticlePreviewAdapter(latest)
+
+        // displaying categories
+        categoriesRecyclerView = rootView.findViewById(R.id.recyclerViewCategories) as RecyclerView
+        categoriesRecyclerView.layoutManager = LinearLayoutManager(activity)
+        categoriesRecyclerView.adapter = CategoryPreviewAdapter(categories)
+
         return rootView
     }
 }
