@@ -13,7 +13,6 @@ import com.dznow.models.ArticleModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.layout_article_preview.view.*
 import kotlin.collections.ArrayList
-import android.support.v4.content.ContextCompat.startActivity
 import com.dznow.services.WEBSITE
 import com.dznow.utils.shareAction
 import com.dznow.utils.timeSince
@@ -60,7 +59,6 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
         init {
             itemView.setOnClickListener(this)
             itemView.buttonShare.setOnClickListener { buttonShareAction() }
-            itemView.buttonBookmark.setOnClickListener { buttonBookmarkAction() }
             sourceName = itemView.textViewArticleSource
             createdAt = itemView.textViewArticleTimeSince
             title = itemView.textViewArticleTitle
@@ -88,10 +86,6 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
                 article?.title,
                 "${itemView.context.getString(R.string.share_article_content)}${WEBSITE}${article?.url}"
             )
-        }
-
-        fun buttonBookmarkAction() {
-
         }
     }
 }
