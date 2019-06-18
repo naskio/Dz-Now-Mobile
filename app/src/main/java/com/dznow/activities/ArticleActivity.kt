@@ -21,7 +21,11 @@ class ArticleActivity : AppCompatActivity() {
         tv_article_content.text = intent.getStringExtra("content")
         tv_article_minutes_read.text = intent.getStringExtra("minutes_read")
         val coverUrl = intent.getStringExtra("cover_url")
-        Picasso.get().load(coverUrl).into(tv_article_cover)
+        Picasso.get().load(coverUrl)
+            .placeholder(R.drawable.ic_launcher_foreground)
+            .fit()
+            .centerCrop()
+            .into(tv_article_cover)
         tv_article_created_at.text = intent.getStringExtra("created_at")
         // val url = intent.getStringExtra("url")
     }
