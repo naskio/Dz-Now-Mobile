@@ -34,8 +34,6 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
     override fun onBindViewHolder(holder: ArticlePreviewHolder, position: Int) {
         val article = articles[position]
         holder.sourceName.text = article.source?.name
-        // change local language to fr/ar
-        Locale.setDefault(Locale("fr"))
         // getting string that describes how much time ago since the creation of the article
         holder.createdAt.text = TimeHelper().getElapsedTime(article.created_at)
         holder.title.text = article.title

@@ -15,6 +15,8 @@ import com.dznow.models.CategoryModel
 
 // for using ids directly without findViewById
 import kotlinx.android.synthetic.main.activity_main.*;
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
@@ -63,6 +65,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // TODO: Set the default locale to match the language of the application ("fr" / "ar")
+        Locale.setDefault(Locale("fr"))
+
         // fetching data
         latest = this.intent.getParcelableArrayListExtra<ArticleModel>("latest")
         categories = this.intent.getParcelableArrayListExtra<CategoryModel>("categories")
