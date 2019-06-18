@@ -19,7 +19,7 @@
     <string name="tv_sub_item_title">Bounedjah reçoit le trophée de meilleur buteur du championnat du Qatar,Bounedjah reçoit le trophée de meilleur buteur du championnat du Qatar</string>
     <string name="tv_sub_item_source">Le Buteur</string>
     <string name="tv_sub_item_date">13/06/2019 09:55</string>
-    <string name="tv_sub_item_time">5 min de lecture</string>
+    <string name="tv_sub_item_time">%1$d min de lecture</string>
     <string name="tv_sub_item_content">Contenu de l\'article</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="dummy_button">Dummy Button</string>
