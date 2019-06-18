@@ -11,7 +11,8 @@ import kotlinx.android.synthetic.main.activity_article.textViewArticleMinutesRea
 import kotlinx.android.synthetic.main.activity_article.textViewArticleTitle
 
 class ArticleActivity : AppCompatActivity() {
-
+    // TODO: add get article API
+    // TODO: use get article from API instead (to solve TooLargeException)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_article)
