@@ -11,7 +11,7 @@ data class ArticleModel (
     val content: String,
     val minutes_read: Int,
     val cover_url: String?,
-    val created_at: Date,
+    val created_at: String,
     val category: CategoryModel?,
     val source: SourceModel?,
     val url: String?
