@@ -1,4 +1,4 @@
-package com.dznow.article
+package com.dznow.activities
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -9,9 +9,10 @@ import kotlinx.android.synthetic.main.activity_article.tv_article_cover
 import kotlinx.android.synthetic.main.activity_article.tv_article_created_at
 import kotlinx.android.synthetic.main.activity_article.tv_article_minutes_read
 import kotlinx.android.synthetic.main.activity_article.tv_article_title
-import kotlinx.android.synthetic.main.layout_home_article.*
+import kotlinx.android.synthetic.main.layout_article_preview.*
 
 class ArticleActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_article)

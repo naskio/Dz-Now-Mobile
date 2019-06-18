@@ -14,6 +14,7 @@
             android:layout_height="wrap_content"
     >
 
+
         <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
@@ -22,6 +23,14 @@
                 android:theme="@style/LightActionBar"
                 app:layout_scrollFlags="scroll|enterAlways|snap"
         >
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_outline_settings_24px"
+                    android:contentDescription="@string/button_description_settings"
+                    style="@style/Widget.AppCompat.ActionButton"
+            />
+
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

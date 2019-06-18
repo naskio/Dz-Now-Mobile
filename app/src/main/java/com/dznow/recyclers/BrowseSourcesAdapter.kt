@@ -1,4 +1,4 @@
-package com.dznow.browse
+package com.dznow.recyclers
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -8,14 +8,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.dznow.R
-import com.dznow.source.SourceModel
+import com.dznow.models.SourceModel
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.layout_browse_item.view.*
+import kotlinx.android.synthetic.main.layout_browse_source.view.*
 
-class SourceAdapter(private val sources: List<SourceModel>) : RecyclerView.Adapter<SourceAdapter.ViewHolder>() {
+class BrowseSourcesAdapter(private val sources: List<SourceModel>) : RecyclerView.Adapter<BrowseSourcesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val layoutView = LayoutInflater.from(parent.context).inflate(R.layout.layout_browse_item, null)
+        val layoutView = LayoutInflater.from(parent.context).inflate(R.layout.layout_browse_source, null)
         return ViewHolder(layoutView)
     }
 

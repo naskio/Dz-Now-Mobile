@@ -1,4 +1,4 @@
-package com.dznow.home
+package com.dznow.recyclers
 
 import android.content.Intent
 import android.support.v7.widget.RecyclerView
@@ -7,45 +7,50 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import com.dznow.R
-import com.dznow.article.ArticleActivity
-import com.dznow.article.ArticleModel
+import com.dznow.activities.ArticleActivity
+import com.dznow.models.ArticleModel
 import com.squareup.picasso.Picasso
-import com.squareup.picasso.RequestCreator
-import kotlinx.android.synthetic.main.layout_home_article.view.*
+import kotlinx.android.synthetic.main.layout_article_preview.view.*
 
-class ArticleAdapter (private val articles : List<ArticleModel>) : RecyclerView.Adapter<ArticleAdapter.ViewHolder>(){
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v =  LayoutInflater.from(parent.context).inflate(R.layout.layout_home_article,parent,false)
-        return ViewHolder(v)
+class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
+    RecyclerView.Adapter<ArticlePreviewAdapter.ArticlePreviewHolder>() {
+
+    // creating the layout for the view holder
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticlePreviewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.layout_article_preview, parent, false)
+        return ArticlePreviewHolder(view)
     }
 
     override fun getItemCount(): Int {
         return articles.size
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    // passing data to the view Holder
+    override fun onBindViewHolder(holder: ArticlePreviewHolder, position: Int) {
         val article = articles[position]
-        holder.sourceName.text = article.source.name
-        holder.createdAt.text = article.created_at
+        holder.sourceName.text = article.source?.name
+        holder.createdAt.text = article.created_at.toString()
         holder.title.text = article.title
         holder.minutesRead.text = article.minutes_read.toString()
         Picasso.get().load(article.cover_url).into(holder.articleCover)
         holder.article = article
     }
 
-    inner class ViewHolder(itemView: View, var article : ArticleModel? = null) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
-        val sourceName : TextView
-        val createdAt : TextView
-        val title : TextView
-        val minutesRead : TextView
-        val articleCover : ImageView
+    // Article Preview Holder
+    inner class ArticlePreviewHolder(itemView: View, var article: ArticleModel? = null) :
+        RecyclerView.ViewHolder(itemView), View.OnClickListener {
+        val sourceName: TextView
+        val createdAt: TextView
+        val title: TextView
+        val minutesRead: TextView
+        val articleCover: ImageView
 
         init {
             itemView.setOnClickListener(this)
             sourceName = itemView.tv_article_source_name
-            createdAt =  itemView.tv_article_created_at
+            createdAt = itemView.tv_article_created_at
             title = itemView.tv_article_title
             minutesRead = itemView.tv_article_minutes_read
             articleCover = itemView.tv_article_cover

@@ -1,4 +1,4 @@
-package com.dznow.network
+package com.dznow.services.network
 
 import okhttp3.*
 

@@ -1,26 +1,34 @@
-package com.dznow
+package com.dznow.activities
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v7.app.AppCompatActivity
-import com.dznow.browse.BrowseFragment
-import com.dznow.home.HomeFragment
+import com.dznow.R
+import com.dznow.fragments.BrowseFragment
+import com.dznow.fragments.BookmarksFragment
+import com.dznow.fragments.ForYouFragment
+import com.dznow.fragments.HomeFragment
+import com.dznow.models.ArticleModel
+import com.dznow.models.CategoryModel
 
 // for using ids directly without findViewById
 import kotlinx.android.synthetic.main.activity_main.*;
-import okhttp3.*
-import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var fManager: FragmentManager
-    private final val homeFragment = HomeFragment()
-    private final val forYouFragment = ForYouFragment()
-    private final val browseFragment = BrowseFragment()
-    private final val bookmarksFragment = BookmarksFragment()
+    // fragments
+    private lateinit var homeFragment: HomeFragment
+    private lateinit var forYouFragment: ForYouFragment
+    private lateinit var browseFragment: BrowseFragment
+    private lateinit var bookmarksFragment: BookmarksFragment
     private lateinit var active: Fragment
+    // data
+    private lateinit var latest: ArrayList<ArticleModel>
+    private lateinit var categories: ArrayList<CategoryModel>
+
 
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
@@ -55,6 +63,23 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        // fetching data
+        latest = this.intent.getParcelableArrayListExtra<ArticleModel>("latest")
+        categories = this.intent.getParcelableArrayListExtra<CategoryModel>("categories")
+
+        // initializing and passing data to Fragments
+        homeFragment = HomeFragment.newInstance(latest, categories)
+        forYouFragment = ForYouFragment()
+        browseFragment = BrowseFragment()
+        bookmarksFragment = BookmarksFragment()
+
+        // TODO: display the data (recycler view)
+//        getActivity()?.runOnUiThread {
+//            recyclerView.adapter = CategoryPreviewAdapter(categories)
+//        }
+
+
+        // fragments navigation logic
         fManager = supportFragmentManager
         active = homeFragment
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)

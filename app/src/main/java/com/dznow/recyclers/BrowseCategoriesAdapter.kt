@@ -1,4 +1,4 @@
-package com.dznow.browse
+package com.dznow.recyclers
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -8,14 +8,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.dznow.R
-import com.dznow.category.CategoryModel
+import com.dznow.models.CategoryModel
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.layout_browse_item.view.*
+import kotlinx.android.synthetic.main.layout_browse_category.view.*
 
-class CategoryAdapter(private val categories: List<CategoryModel>) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
+class BrowseCategoriesAdapter(private val categories: List<CategoryModel>) :
+    RecyclerView.Adapter<BrowseCategoriesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val layoutView = LayoutInflater.from(parent.context).inflate(R.layout.layout_browse_item, null)
+        val layoutView = LayoutInflater.from(parent.context).inflate(R.layout.layout_browse_category, null)
         return ViewHolder(layoutView)
     }
 
@@ -29,7 +30,7 @@ class CategoryAdapter(private val categories: List<CategoryModel>) : RecyclerVie
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         var targetName: TextView
-        var categoryCover : ImageView
+        var categoryCover: ImageView
 
         init {
             itemView.setOnClickListener(this)
@@ -38,9 +39,10 @@ class CategoryAdapter(private val categories: List<CategoryModel>) : RecyclerVie
         }
 
         override fun onClick(view: View) {
-            Toast.makeText(view.context,
-                "Clicked Position = " + adapterPosition, Toast.LENGTH_SHORT)
-                .show()
+            Toast.makeText(
+                view.context,
+                "Clicked Position = " + adapterPosition, Toast.LENGTH_SHORT
+            ).show()
         }
     }
 }

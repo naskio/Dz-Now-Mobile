@@ -1,4 +1,4 @@
-package com.dznow.browse
+package com.dznow.fragments
 
 
 import android.os.Bundle
@@ -9,10 +9,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.dznow.R
-import com.dznow.category.CategoryFeed
-import com.dznow.network.OkHttpRequest
-import com.dznow.source.SourceDataFactory
-import com.dznow.source.SourceFeed
+import com.dznow.recyclers.BrowseCategoriesAdapter
+import com.dznow.recyclers.BrowseSourcesAdapter
+import com.dznow.services.helpers.CategoryFeed
+import com.dznow.services.network.OkHttpRequest
+import com.dznow.services.helpers.SourceFeed
 import com.google.gson.GsonBuilder
 import okhttp3.Call
 import okhttp3.Callback
@@ -46,12 +47,12 @@ class BrowseFragment : Fragment() {
         categoriesRecyclerView = rootView.findViewById(R.id.rv_categories) as RecyclerView
         categoriesRecyclerView.setHasFixedSize(true)
         categoriesRecyclerView.layoutManager = GridLayoutManager(activity, 2)
-        // categoriesRecyclerView.adapter = CategoryAdapter(CategoryDataFactory.getCategories(4))
+        // categoriesRecyclerView.adapter = CategoryPreviewAdapter(CategoryDataFactory.getCategories(4))
         // sources recycler view
         sourcesRecyclerView = rootView.findViewById(R.id.rv_sources) as RecyclerView
         sourcesRecyclerView.setHasFixedSize(true)
         sourcesRecyclerView.layoutManager = GridLayoutManager(activity, 2)
-        // sourcesRecyclerView.adapter = SourceAdapter(SourceDataFactory.getSources(3))
+        // sourcesRecyclerView.adapter = BrowseSourcesAdapter(SourceDataFactory.getSources(3))
         // return rootView
         return rootView
     }
@@ -60,7 +61,7 @@ class BrowseFragment : Fragment() {
         val categoriesUrl = "https://dznow.herokuapp.com/api/v0/fr/categories"
         val client = OkHttpClient()
         val request = OkHttpRequest(client)
-        request.GET(categoriesUrl, object: Callback {
+        request.GET(categoriesUrl, object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 println("Failed to execute request")
             }
@@ -70,12 +71,13 @@ class BrowseFragment : Fragment() {
                 val gson = GsonBuilder().create()
                 val categoryFeed = gson.fromJson(body, CategoryFeed::class.java)
                 getActivity()?.runOnUiThread {
-                    categoriesRecyclerView.adapter = CategoryAdapter(categoryFeed.categories)
+                    categoriesRecyclerView.adapter =
+                        BrowseCategoriesAdapter(categoryFeed.categories)
                 }
             }
         })
         val sourcesUrl = "https://dznow.herokuapp.com/api/v0/fr/sources"
-        request.GET(sourcesUrl, object: Callback {
+        request.GET(sourcesUrl, object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 println("Failed to execute request")
             }
@@ -85,7 +87,7 @@ class BrowseFragment : Fragment() {
                 val gson = GsonBuilder().create()
                 val sourceFeed = gson.fromJson(body, SourceFeed::class.java)
                 getActivity()?.runOnUiThread {
-                    sourcesRecyclerView.adapter = SourceAdapter(sourceFeed.sources)
+                    sourcesRecyclerView.adapter = BrowseSourcesAdapter(sourceFeed.sources)
                 }
             }
         })
