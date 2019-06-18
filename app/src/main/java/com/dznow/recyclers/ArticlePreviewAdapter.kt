@@ -12,6 +12,9 @@ import com.dznow.activities.ArticleActivity
 import com.dznow.models.ArticleModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.layout_article_preview.view.*
+import com.dznow.services.helpers.TimeHelper
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
     RecyclerView.Adapter<ArticlePreviewAdapter.ArticlePreviewHolder>() {
@@ -31,7 +34,10 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
     override fun onBindViewHolder(holder: ArticlePreviewHolder, position: Int) {
         val article = articles[position]
         holder.sourceName.text = article.source?.name
-        holder.createdAt.text = article.created_at.toString()
+        // change local language to fr/ar
+        Locale.setDefault(Locale("fr"))
+        // getting string that describes how much time ago since the creation of the article
+        holder.createdAt.text = TimeHelper().getElapsedTime(article.created_at)
         holder.title.text = article.title
         holder.minutesRead.text = article.minutes_read.toString()
         Picasso.get().load(article.cover_url).into(holder.articleCover)
