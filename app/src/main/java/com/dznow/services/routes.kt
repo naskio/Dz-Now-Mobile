@@ -1,5 +1,6 @@
 package com.dznow.services
 
+const val WEBSITE = "https://dznow.herokuapp.com"
 
 const val BASE = "https://dznow.herokuapp.com/api/v0"
 

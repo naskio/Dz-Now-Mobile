@@ -8,13 +8,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.dznow.R
-import com.dznow.services.BASE
 import com.dznow.activities.ArticleActivity
 import com.dznow.models.ArticleModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.layout_article_preview.view.*
 import kotlin.collections.ArrayList
 import android.support.v4.content.ContextCompat.startActivity
+import com.dznow.services.WEBSITE
+import com.dznow.utils.shareAction
 import com.dznow.utils.timeSince
 
 class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
@@ -81,11 +82,12 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
         }
 
         fun buttonShareAction() {
-            val i = Intent(Intent.ACTION_SEND)
-            i.type = "text/plain"
-            i.putExtra(Intent.EXTRA_SUBJECT, article?.title)
-            i.putExtra(Intent.EXTRA_TEXT, BASE + article?.url)
-            startActivity(itemView.context, Intent.createChooser(i, "Share URL"), null)
+            shareAction(
+                itemView.context,
+                itemView.context.getString(R.string.share_article_title),
+                article?.title,
+                "${itemView.context.getString(R.string.share_article_content)}${WEBSITE}${article?.url}"
+            )
         }
 
         fun buttonBookmarkAction() {

@@ -10,6 +10,9 @@
     <string name="title_category">Par catégorie</string>
     <string name="title_source">Par source</string>
     <string name="image_description_cover">Article Cover</string>
+    <string name="share_article_title">Partager l\'article</string>
+    <string name="share_article_content">Voir cet article: </string>
+
 
 
 
