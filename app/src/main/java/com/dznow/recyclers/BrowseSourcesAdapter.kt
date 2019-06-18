@@ -22,7 +22,11 @@ class BrowseSourcesAdapter(private val sources: List<SourceModel>) : RecyclerVie
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val source = sources[position]
         holder.targetName.text = source.name
-        Picasso.get().load(source.logo_url).into(holder.sourceCover)
+        Picasso.get().load(source.logo_url)
+            .placeholder(R.drawable.ic_launcher_foreground)
+            .fit()
+            .centerInside()
+            .into(holder.sourceCover)
     }
 
     override fun getItemCount() = sources.size

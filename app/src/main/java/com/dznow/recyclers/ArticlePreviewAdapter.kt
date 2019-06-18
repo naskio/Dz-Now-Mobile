@@ -38,7 +38,11 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
         holder.createdAt.text = TimeHelper().getElapsedTime(article.created_at)
         holder.title.text = article.title
         holder.minutesRead.text = article.minutes_read.toString()
-        Picasso.get().load(article.cover_url).into(holder.articleCover)
+        Picasso.get().load(article.cover_url)
+            .placeholder(R.drawable.ic_launcher_foreground)
+            .fit()
+            .centerCrop()
+            .into(holder.articleCover)
         holder.article = article
     }
 
