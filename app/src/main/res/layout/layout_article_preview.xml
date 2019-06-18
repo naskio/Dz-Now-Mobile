@@ -2,10 +2,10 @@
 
 <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_x2"
-        android:layout_marginBottom="@dimen/margin_x2"
+        android:layout_marginTop="@dimen/margin_x1"
+        android:layout_marginBottom="@dimen/margin_x1"
 >
 
     <ImageView
@@ -15,19 +15,34 @@
             android:background="@color/colorWhite"
             android:src="@drawable/ic_launcher_foreground"
             android:contentDescription="@string/image_description_cover"
+            android:layout_marginRight="@dimen/margin_x2"
+            android:layout_marginLeft="@dimen/margin_x2"
     />
+
     <TextView
             android:id="@+id/textViewArticleSource"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tv_sub_item_source"/>
+            android:text="@string/tv_sub_item_source"
+            android:layout_below="@id/imageViewArticleCover"
+            android:layout_alignStart="@id/imageViewArticleCover"
+            android:layout_marginTop="@dimen/margin_x1"
+            android:layout_marginBottom="@dimen/margin_x1"
+            style="@style/ArticleMetaTextTitle"
+    />
 
     <TextView
             android:id="@+id/textViewArticleTimeSince"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="false"
-            android:text="@string/tv_sub_item_date"/>
+            android:text="@string/tv_sub_item_date"
+            android:layout_below="@id/imageViewArticleCover"
+            android:layout_alignEnd="@id/imageViewArticleCover"
+            android:layout_marginTop="@dimen/margin_x1"
+            android:layout_marginBottom="@dimen/margin_x1"
+            style="@style/ArticleMetaTextTitle"
+    />
 
     <TextView
             android:id="@+id/textViewArticleTitle"
@@ -35,34 +50,44 @@
             android:layout_height="wrap_content"
             style="@style/ArticlePreviewTextTitle"
             android:maxLines="3"
+            android:ellipsize="end"
             android:text="@string/tv_sub_item_title"
-            android:layout_alignBottom="@+id/imageViewArticleCover"
+            android:layout_below="@+id/textViewArticleSource"
+            android:layout_alignEnd="@id/imageViewArticleCover"
+            android:layout_alignStart="@id/imageViewArticleCover"
     />
-
 
     <TextView
             android:id="@+id/textViewArticleMinutesRead"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tv_sub_item_time"/>
-
-    <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_outline_settings_24px"
-            android:layout_gravity="end"
-            android:layout_marginEnd="8dp"
-            android:contentDescription="@string/button_description_settings"
-            style="@style/Widget.AppCompat.ActionButton"
+            android:text="@string/tv_sub_item_time"
+            android:layout_below="@id/textViewArticleTitle"
+            android:layout_alignStart="@id/imageViewArticleCover"
+            android:height="@dimen/margin_x6"
+            android:gravity="center"
+            style="@style/ArticleMetaTextTitle"
     />
 
     <ImageButton
+            android:id="@+id/buttonShare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_outline_settings_24px"
-            android:layout_gravity="end"
-            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_outline_share_24px"
             android:contentDescription="@string/button_description_settings"
             style="@style/Widget.AppCompat.ActionButton"
+            android:layout_below="@id/textViewArticleTitle"
+            android:layout_toStartOf="@id/buttonBookmark"
+    />
+
+    <ImageButton
+            android:id="@+id/buttonBookmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_outline_bookmark_border_24px"
+            android:contentDescription="@string/button_description_settings"
+            style="@style/Widget.AppCompat.ActionButton"
+            android:layout_below="@id/textViewArticleTitle"
+            android:layout_alignEnd="@id/imageViewArticleCover"
     />
 </RelativeLayout>

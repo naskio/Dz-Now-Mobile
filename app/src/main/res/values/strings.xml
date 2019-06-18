@@ -16,7 +16,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="tv_sub_item_title">Bounedjah reçoit le trophée de meilleur buteur du championnat du Qatar</string>
+    <string name="tv_sub_item_title">Bounedjah reçoit le trophée de meilleur buteur du championnat du Qatar,Bounedjah reçoit le trophée de meilleur buteur du championnat du Qatar</string>
     <string name="tv_sub_item_source">Le Buteur</string>
     <string name="tv_sub_item_date">13/06/2019 09:55</string>
     <string name="tv_sub_item_time">5 min de lecture</string>

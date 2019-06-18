@@ -11,4 +11,5 @@
     <dimen name="margin_x3">24dp</dimen>
     <dimen name="margin_x4">32dp</dimen>
     <dimen name="margin_x5">40dp</dimen>
+    <dimen name="margin_x6">48dp</dimen>
 </resources>

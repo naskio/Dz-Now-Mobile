@@ -23,7 +23,11 @@ class BrowseCategoriesAdapter(private val categories: List<CategoryModel>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val category = categories[position]
         holder.targetName.text = category.name
-        Picasso.get().load(category.background_url).into(holder.categoryCover)
+        Picasso.get().load(category.background_url)
+            .placeholder(R.drawable.ic_launcher_foreground)
+            .fit()
+            .centerCrop()
+            .into(holder.categoryCover)
     }
 
     override fun getItemCount() = categories.size
