@@ -90,8 +90,7 @@
             android:contentDescription="@string/button_description_settings"
             style="@style/Widget.AppCompat.ActionButton"
             android:layout_below="@id/textViewArticleTitle"
-            android:layout_toStartOf="@id/buttonBookmark"
-    />
+            android:layout_toStartOf="@id/buttonBookmark"/>
 
     <ImageButton
             android:id="@+id/buttonBookmark"
@@ -101,6 +100,5 @@
             android:contentDescription="@string/button_description_settings"
             style="@style/Widget.AppCompat.ActionButton"
             android:layout_below="@id/textViewArticleTitle"
-            android:layout_alignEnd="@id/imageCoverContainer"
-    />
+            android:layout_alignEnd="@id/imageCoverContainer"/>
 </RelativeLayout>

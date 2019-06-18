@@ -8,14 +8,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.dznow.R
+import com.dznow.services.BASE
 import com.dznow.activities.ArticleActivity
 import com.dznow.models.ArticleModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.layout_article_preview.view.*
-
-import com.dznow.utils.timeSince
-
 import kotlin.collections.ArrayList
+import android.support.v4.content.ContextCompat.startActivity
+import com.dznow.utils.timeSince
 
 class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
     RecyclerView.Adapter<ArticlePreviewAdapter.ArticlePreviewHolder>() {
@@ -58,6 +58,8 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
 
         init {
             itemView.setOnClickListener(this)
+            itemView.buttonShare.setOnClickListener { buttonShareAction() }
+            itemView.buttonBookmark.setOnClickListener { buttonBookmarkAction() }
             sourceName = itemView.textViewArticleSource
             createdAt = itemView.textViewArticleTimeSince
             title = itemView.textViewArticleTitle
@@ -76,6 +78,18 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
             intent.putExtra("created_at", article?.created_at)
             intent.putExtra("url", article?.url)
             view.context.startActivity(intent)
+        }
+
+        fun buttonShareAction() {
+            val i = Intent(Intent.ACTION_SEND)
+            i.type = "text/plain"
+            i.putExtra(Intent.EXTRA_SUBJECT, article?.title)
+            i.putExtra(Intent.EXTRA_TEXT, BASE + article?.url)
+            startActivity(itemView.context, Intent.createChooser(i, "Share URL"), null)
+        }
+
+        fun buttonBookmarkAction() {
+
         }
     }
 }
