@@ -36,7 +36,7 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
         // getting string that describes how much time ago since the creation of the article
         holder.createdAt.text = TimeHelper().getElapsedTime(article.created_at)
         holder.title.text = article.title
-        holder.minutesRead.text = String.format(holder.minutes_read_template, article.minutes_read.toString())
+        holder.minutesRead.text = String.format(holder.minutes_read_template, article.minutes_read)
         Picasso.get().load(article.cover_url)
             .placeholder(R.drawable.ic_launcher_foreground)
             .fit()
