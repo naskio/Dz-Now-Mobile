@@ -68,8 +68,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // TODO: Set the default locale to match the language of the application ("fr" / "ar")
-
         // fetching data
         latest = this.intent.getParcelableArrayListExtra<ArticleModel>("latest")
         categories = this.intent.getParcelableArrayListExtra<CategoryModel>("categories")
@@ -83,6 +81,7 @@ class MainActivity : AppCompatActivity() {
         // fragments navigation logic
         fManager = supportFragmentManager
         active = homeFragment
+
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
         fManager.beginTransaction().add(R.id.fragmentContainer, bookmarksFragment, "4").hide(bookmarksFragment)
             .commit()
