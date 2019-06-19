@@ -5,9 +5,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.ToggleButton
 import com.dznow.R
 import com.dznow.activities.ArticleActivity
 import com.dznow.models.ArticleModel
@@ -18,6 +18,7 @@ import com.dznow.services.WEBSITE
 import com.dznow.services.helpers.Bookmarks
 import com.dznow.utils.shareAction
 import com.dznow.utils.timeSince
+import kotlinx.android.synthetic.main.activity_article.*
 
 class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
     RecyclerView.Adapter<ArticlePreviewAdapter.ArticlePreviewHolder>() {
@@ -46,7 +47,21 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
             .centerCrop()
             .into(holder.articleCover)
         holder.article = article
-        holder.buttonBookmark.isChecked = Bookmarks.getInstance().isBookmarked(article)
+        if (Bookmarks.getInstance().isBookmarked(article)) {
+            buttonBookmarkSetImage(holder.buttonBookmark, true)
+        }
+        else {
+            buttonBookmarkSetImage(holder.buttonBookmark, false)
+        }
+    }
+
+    private fun buttonBookmarkSetImage (buttonBookmark : ImageButton, checked : Boolean) {
+        if (checked) {
+            buttonBookmark.setImageResource(R.drawable.ic_outline_bookmark_24px)
+        }
+        else {
+            buttonBookmark.setImageResource(R.drawable.ic_outline_bookmark_border_24px)
+        }
     }
 
     // Article Preview Holder
@@ -58,7 +73,7 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
         val minutesRead: TextView
         val articleCover: ImageView
         val minutes_read_template: String
-        val buttonBookmark : ToggleButton
+        val buttonBookmark : ImageButton
 
         init {
             itemView.setOnClickListener(this)
@@ -75,6 +90,7 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
 
         override fun onClick(view: View) {
             val intent = Intent(view.context, ArticleActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            intent.putExtra("id", article?.id)
             intent.putExtra("sourceName", article?.source?.name)
             intent.putExtra("title", article?.title)
             intent.putExtra("content", article?.content)
@@ -82,6 +98,7 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
             intent.putExtra("cover_url", article?.cover_url)
             intent.putExtra("created_at", article?.created_at)
             intent.putExtra("url", article?.url)
+            intent.putExtra("article", article)
             view.context.startActivity(intent)
         }
 
@@ -95,7 +112,14 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
         }
 
         fun buttonBookmarkAction() {
-            Bookmarks.getInstance().bookmark(article!!)
+            if (Bookmarks.getInstance().isBookmarked(article!!)) {
+                Bookmarks.getInstance().unBookmark(article!!)
+                buttonBookmarkSetImage(buttonBookmark, false)
+            }
+            else {
+                Bookmarks.getInstance().bookmark(article!!)
+                buttonBookmarkSetImage(buttonBookmark, true)
+            }
         }
     }
 }

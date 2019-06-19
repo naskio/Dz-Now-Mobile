@@ -20,20 +20,23 @@ class Bookmarks private constructor(){
         if (!isBookmarked(article)) {
             bookmarks.articles.add(article)
         }
-        else {
-            bookmarks.articles.remove(article)
+        saveBookmarks()
+    }
+
+    fun unBookmark(article : ArticleModel) {
+        if (isBookmarked(article)) {
+            bookmarks.articles.remove(bookmarks.articles.find { x -> x.id == article.id })
         }
         saveBookmarks()
     }
 
     fun isBookmarked(article : ArticleModel): Boolean {
-        return bookmarks.articles.contains(article)
+        return bookmarks.articles.any { x -> x.id == article.id }
     }
 
     fun saveBookmarks() {
         val gson = GsonBuilder().create()
         val bookmarksJson = gson.toJson(bookmarks, ArticleFeed::class.java)
-        App.appContext?.deleteFile(bookmarksFileName)
         store(bookmarksFileName, bookmarksJson)
     }
 
