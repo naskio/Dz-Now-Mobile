@@ -72,6 +72,7 @@ class CategoryPreviewAdapter(private val categories: ArrayList<CategoryModel>) :
 
         init {
             itemView.setOnClickListener(this)
+            itemView.buttonShowMore.setOnClickListener{ buttonStarAction() }
             itemView.buttonStar.setOnClickListener { buttonStarAction() }
             categoryName = itemView.tv_item_title
             recyclerView = itemView.recyclerViewArticles
