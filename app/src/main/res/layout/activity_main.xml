@@ -7,7 +7,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:minHeight="@dimen/toolbar_height"
-        android:background="@color/colorWhiteBackground"
 >
 
     <!--TOOLBAR-->
@@ -51,6 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="@dimen/navigation_bottom_height"
+            android:background="@color/colorWhiteBackground"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
     >
     </FrameLayout>

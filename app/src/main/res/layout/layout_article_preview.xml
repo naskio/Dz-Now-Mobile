@@ -2,9 +2,9 @@
 
 <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_marginTop="@dimen/margin_x1"
         android:layout_marginBottom="@dimen/margin_x1"
 >
@@ -29,7 +29,6 @@
         />
 
     </android.support.v7.widget.CardView>
-
 
 
     <TextView
@@ -92,15 +91,26 @@
             android:layout_below="@id/textViewArticleTitle"
             android:layout_toStartOf="@id/buttonBookmark"/>
 
+    <!--<ImageButton-->
+            <!--android:id="@+id/buttonBookmark"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@drawable/ic_outline_bookmark_border_24px"-->
+            <!--android:contentDescription="@string/button_description_settings"-->
+            <!--style="@style/Widget.AppCompat.ActionButton"-->
+            <!--android:layout_below="@id/textViewArticleTitle"-->
+            <!--android:layout_alignEnd="@id/imageCoverContainer"/>-->
+
     <ToggleButton
             android:id="@+id/buttonBookmark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/margin_x4"
+            android:layout_height="@dimen/margin_x4"
+            android:layout_margin="@dimen/margin_x1"
+            android:gravity="center"
             android:background="@drawable/ic_bookmark_toggle"
             android:textOn=""
             android:textOff=""
             android:contentDescription="@string/button_description_settings"
-            style="@style/Widget.AppCompat.ActionButton"
             android:layout_below="@id/textViewArticleTitle"
             android:layout_alignEnd="@id/imageCoverContainer"/>
 </RelativeLayout>

@@ -74,7 +74,7 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
         }
 
         override fun onClick(view: View) {
-            val intent = Intent(view.context, ArticleActivity::class.java)
+            val intent = Intent(view.context, ArticleActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
             intent.putExtra("sourceName", article?.source?.name)
             intent.putExtra("title", article?.title)
             intent.putExtra("content", article?.content)

@@ -5,14 +5,18 @@
         tools:context=".fragments.HomeFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorWhite"
         android:fillViewport="true"
 >
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+        >
             <TextView
                     style="@style/CategoryTextTitle"
                     android:layout_marginTop="@dimen/margin_x3"
@@ -23,15 +27,19 @@
                     android:text="@string/title_latest"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
+
             <android.support.v7.widget.RecyclerView
                     android:id="@+id/recyclerViewLatest"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:layout_below="@+id/textViewLatestTitle"/>
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewLatestTitle"/>
+
         </RelativeLayout>
 
         <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerViewCategories"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+        />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
