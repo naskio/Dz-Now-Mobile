@@ -12,6 +12,7 @@ import com.dznow.fragments.ForYouFragment
 import com.dznow.fragments.HomeFragment
 import com.dznow.models.ArticleModel
 import com.dznow.models.CategoryModel
+import com.dznow.services.LocaleHelper
 
 // for using ids directly without findViewById
 import kotlinx.android.synthetic.main.activity_main.*
@@ -67,6 +68,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+//        val editor = this.getSharedPreferences("language", 0).edit()
+//        editor.putString("language", "ar")
+//        editor.apply()
+
+//        LocaleHelper.setLocale(this, "ar")
+//        recreate()
 
         // fetching data
         latest = this.intent.getParcelableArrayListExtra<ArticleModel>("latest")

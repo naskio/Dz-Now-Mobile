@@ -9,7 +9,7 @@
     <string name="button_bookmarks">Bookmarks</string>
     <string name="title_category">Par catégorie</string>
     <string name="title_source">Par source</string>
-    <string name="image_description_cover">Article Cover</string>
+    <string name="image_description_cover" translatable="false">Article Cover</string>
     <string name="share_article_title">Partager l\'article</string>
     <string name="share_article_content">Voir cet article:</string>
     <string name="button_show_more">Afficher plus</string>
@@ -19,13 +19,13 @@
 
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="tv_sub_item_title">Bounedjah reçoit le trophée de meilleur buteur du championnat du Qatar,Bounedjah reçoit le trophée de meilleur buteur du championnat du Qatar</string>
     <string name="tv_sub_item_source">Le Buteur</string>
     <string name="tv_sub_item_date">13/06/2019 09:55</string>
     <string name="tv_sub_item_time">%1$d min de lecture</string>
     <string name="tv_sub_item_content">Contenu de l\'article</string>
-    <string name="title_activity_splash">SplashActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_splash" translatable="false">SplashActivity</string>
+    <string name="dummy_button" translatable="false">Dummy Button</string>
+    <string name="dummy_content" translatable="false">DUMMY\nCONTENT</string>
 </resources>

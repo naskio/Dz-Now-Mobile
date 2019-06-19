@@ -3,6 +3,8 @@ package com.dznow.activities
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import com.dznow.R
 import com.dznow.models.ArticleModel
 import com.dznow.models.CategoryModel
@@ -25,6 +27,12 @@ class SplashActivity : AppCompatActivity() {
 
     // TODO: use dialog
     private fun showErrorDialog() {
-        print("Network Error")
+        this.runOnUiThread(Runnable {
+            Toast.makeText(
+                this
+                , "Network Error", Toast.LENGTH_SHORT
+            ).show()
+        })
+        Log.e("Network Error", "Network")
     }
 }
