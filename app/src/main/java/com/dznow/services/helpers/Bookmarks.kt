@@ -40,6 +40,10 @@ class Bookmarks private constructor(){
         store(bookmarksFileName, bookmarksJson)
     }
 
+    fun getBookmarks() : ArrayList<ArticleModel> {
+        return bookmarks.articles
+    }
+
     private object Singleton {
         val instance = Bookmarks()
     }
