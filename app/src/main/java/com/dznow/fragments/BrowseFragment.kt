@@ -1,6 +1,5 @@
 package com.dznow.fragments
 
-
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
@@ -20,7 +19,6 @@ import okhttp3.Callback
 import okhttp3.OkHttpClient
 import okhttp3.Response
 import java.io.IOException
-
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

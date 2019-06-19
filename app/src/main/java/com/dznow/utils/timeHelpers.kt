@@ -5,7 +5,6 @@ import android.text.format.DateUtils
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 @SuppressLint("SimpleDateFormat")
 fun timeSince(time: String): String {
     Locale.setDefault(Locale("fr"))

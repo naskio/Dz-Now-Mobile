@@ -2,7 +2,6 @@ package com.dznow.activities
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.widget.Toast
 import com.dznow.R
 import com.dznow.services.WEBSITE
 import com.dznow.utils.shareAction

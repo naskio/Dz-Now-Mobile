@@ -46,7 +46,7 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
             .centerCrop()
             .into(holder.articleCover)
         holder.article = article
-        holder.buttonBookmark.isChecked = Bookmarks().isBookmarked(article)
+        holder.buttonBookmark.isChecked = Bookmarks.getInstance().isBookmarked(article)
     }
 
     // Article Preview Holder
@@ -95,7 +95,7 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
         }
 
         fun buttonBookmarkAction() {
-            Bookmarks().bookmark(article)
+            Bookmarks.getInstance().bookmark(article!!)
         }
     }
 }
