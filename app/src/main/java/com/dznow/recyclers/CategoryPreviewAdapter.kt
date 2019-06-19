@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.*
 import com.dznow.R
 import com.dznow.models.CategoryModel
+import com.dznow.services.storage.ForYouCategories
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.layout_category_preview.view.*
 
@@ -33,24 +34,40 @@ class CategoryPreviewAdapter(private val categories: ArrayList<CategoryModel>) :
             .fit()
             .centerCrop()
             .into(holder.icon)
-
-
         holder.recyclerView.apply {
             layoutManager = LinearLayoutManager(holder.recyclerView.context, LinearLayout.VERTICAL, false)
             adapter = category.articles?.let { ArticlePreviewAdapter(it) }
             setRecycledViewPool(viewPool)
         }
+        holder.category = category
+        if (ForYouCategories.getInstance().isStarred(category)) {
+            buttonStarSetImage(holder.buttonStar, true)
+        }
+        else {
+            buttonStarSetImage(holder.buttonStar, false)
+        }
     }
 
-    inner class CategoryPreviewHolder(itemView: View) :
+    fun buttonStarSetImage (buttonStar : ImageButton, checked : Boolean) {
+        if (checked) {
+            buttonStar.setImageResource(R.drawable.ic_outline_star_border_24px)
+        }
+        else {
+            buttonStar.setImageResource(R.drawable.ic_outline_bookmark_border_24px)
+        }
+    }
+
+    inner class CategoryPreviewHolder(itemView: View, var category: CategoryModel? = null) :
         RecyclerView.ViewHolder(itemView), View.OnClickListener {
         val textView: TextView
         val recyclerView: RecyclerView
         val buttonShowMore: Button
         val icon: ImageView
+        val buttonStar : ImageButton
 
         init {
             itemView.setOnClickListener(this)
+            itemView.buttonStar.setOnClickListener { buttonStarAction() }
             textView = itemView.tv_item_title
             recyclerView = itemView.rv_sub_item
             buttonShowMore = itemView.buttonShowMore
@@ -58,6 +75,7 @@ class CategoryPreviewAdapter(private val categories: ArrayList<CategoryModel>) :
             buttonShowMore.setOnClickListener {
                 onClick(itemView)
             }
+            buttonStar = itemView.buttonStar
         }
 
         override fun onClick(view: View) {
@@ -66,6 +84,17 @@ class CategoryPreviewAdapter(private val categories: ArrayList<CategoryModel>) :
                 view.context,
                 "Clicked Position = " + adapterPosition, Toast.LENGTH_SHORT
             ).show()
+        }
+
+        fun buttonStarAction () {
+            if (ForYouCategories.getInstance().isStarred(category!!)) {
+                ForYouCategories.getInstance().unStar(category!!)
+                buttonStarSetImage(buttonStar, false)
+            }
+            else {
+                ForYouCategories.getInstance().star(category!!)
+                buttonStarSetImage(buttonStar, true)
+            }
         }
     }
 }
