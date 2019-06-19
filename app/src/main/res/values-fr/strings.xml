@@ -20,4 +20,7 @@
     <string name="tv_sub_item_title">Bounedjah reçoit le trophée de meilleur buteur du championnat du Qatar,Bounedjah
         reçoit le trophée de meilleur buteur du championnat du Qatar
     </string>
+    <string name="title_settings">Préferences</string>
+    <string name="language_arabic">Arabe</string>
+    <string name="language_french">Français</string>
 </resources>

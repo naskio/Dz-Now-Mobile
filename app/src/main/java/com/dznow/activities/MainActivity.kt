@@ -1,5 +1,6 @@
 package com.dznow.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
@@ -73,8 +74,13 @@ class MainActivity : AppCompatActivity() {
 //        editor.putString("language", "ar")
 //        editor.apply()
 
-//        LocaleHelper.setLocale(this, "ar")
+//        LocaleHelper.setLocale(this, "fr")
 //        recreate()
+
+        buttonSettings.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            startActivity(intent)
+        }
 
         // fetching data
         latest = this.intent.getParcelableArrayListExtra<ArticleModel>("latest")

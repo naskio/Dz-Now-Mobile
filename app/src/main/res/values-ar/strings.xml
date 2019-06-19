@@ -18,4 +18,7 @@
     <string name="tv_sub_item_source">الهداف</string>
     <string name="tv_sub_item_time">" %1$d دقيقة قراءة"</string>
     <string name="tv_sub_item_title">العنوان</string>
+    <string name="title_settings">الإعدادات</string>
+    <string name="language_arabic">العربية</string>
+    <string name="language_french">الفرنسية</string>
 </resources>

@@ -2,11 +2,11 @@
 <android.support.design.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:minHeight="@dimen/toolbar_height"
 >
 
     <!--TOOLBAR-->
@@ -23,52 +23,54 @@
                 android:theme="@style/LightActionBar"
                 app:layout_scrollFlags="scroll|enterAlways|snap"
         >
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_arrow_back_24px"
+                    android:contentDescription="@string/button_description_settings"
+                    style="@style/Widget.AppCompat.ActionButton"
+                    android:layout_gravity="start"
+                    android:layout_marginEnd="@dimen/margin_x2"
+                    android:id="@+id/buttonBack"
+            />
+
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/app_name"
+                    android:text="@string/title_settings"
                     style="@style/LightTheme.ToolBarHomeTextTitle"
-                    android:layout_gravity="center"
+                    android:layout_gravity="start"
                     android:id="@+id/toolbarTitle"/>
 
-            <ImageButton
-                    android:id="@+id/buttonSettings"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_outline_settings_24px"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="8dp"
-                    android:contentDescription="@string/button_description_settings"
-                    style="@style/Widget.AppCompat.ActionButton"
-            />
+
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 
     <!--CONTENT-->
-    <FrameLayout
-            android:id="@+id/fragmentContainer"
+    <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/navigation_bottom_height"
-            android:background="@color/colorWhiteBackground"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
     >
-    </FrameLayout>
-
-    <!--NAVIGATION BOTTOM-->
-    <android.support.design.widget.BottomNavigationView
-            android:id="@+id/navView"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/navigation_bottom_height"
-            android:layout_gravity="bottom"
-            android:background="@color/colorWhite"
-            android:elevation="2dp"
-            app:labelVisibilityMode="labeled"
-            app:itemIconSize="24dp"
-            app:itemIconTint="@xml/color_bottom_navigation_item"
-            app:itemTextColor="@xml/color_bottom_navigation_item"
-            app:menu="@menu/bottom_nav_menu"/>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+        >
+            <Button
+                    android:id="@+id/buttonArabic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/language_arabic"
+            />
+            <Button
+                    android:id="@+id/buttonFrench"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/language_french"
+            />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 
 </android.support.design.widget.CoordinatorLayout>
-
