@@ -10,9 +10,9 @@ import android.view.ViewGroup
 import com.dznow.R
 import com.dznow.recyclers.BrowseCategoriesAdapter
 import com.dznow.recyclers.BrowseSourcesAdapter
-import com.dznow.services.helpers.CategoryFeed
+import com.dznow.services.helpers.CategoriesFeed
 import com.dznow.services.network.OkHttpRequest
-import com.dznow.services.helpers.SourceFeed
+import com.dznow.services.helpers.SourcesFeed
 import com.google.gson.GsonBuilder
 import okhttp3.Call
 import okhttp3.Callback
@@ -58,7 +58,7 @@ class BrowseFragment : Fragment() {
             override fun onResponse(call: Call, response: Response) {
                 val body = "{ categories: " + response.body()?.string() + "}"
                 val gson = GsonBuilder().create()
-                val categoryFeed = gson.fromJson(body, CategoryFeed::class.java)
+                val categoryFeed = gson.fromJson(body, CategoriesFeed::class.java)
                 getActivity()?.runOnUiThread {
                     categoriesRecyclerView.adapter =
                         BrowseCategoriesAdapter(categoryFeed.categories)
@@ -74,7 +74,7 @@ class BrowseFragment : Fragment() {
             override fun onResponse(call: Call, response: Response) {
                 val body = "{ sources: " + response.body()?.string() + "}"
                 val gson = GsonBuilder().create()
-                val sourceFeed = gson.fromJson(body, SourceFeed::class.java)
+                val sourceFeed = gson.fromJson(body, SourcesFeed::class.java)
                 getActivity()?.runOnUiThread {
                     sourcesRecyclerView.adapter = BrowseSourcesAdapter(sourceFeed.sources)
                 }

@@ -97,7 +97,6 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
             intent.putExtra("cover_url", article?.cover_url)
             intent.putExtra("created_at", article?.created_at)
             intent.putExtra("url", article?.url)
-            intent.putExtra("article", article)
             view.context.startActivity(intent)
         }
 
