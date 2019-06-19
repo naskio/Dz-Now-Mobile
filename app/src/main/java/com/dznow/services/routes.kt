@@ -2,7 +2,7 @@ package com.dznow.services
 
 const val WEBSITE = "https://dznow.herokuapp.com"
 
-const val BASE = "https://dznow.herokuapp.com/api/v0"
+const val BASE = "$WEBSITE/api/v0"
 
 val homeAPI: (String) -> String = { l -> "$BASE/$l/all" }
 
