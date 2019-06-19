@@ -1,5 +1,6 @@
 package com.dznow.activities
 
+import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
@@ -12,6 +13,8 @@ import com.dznow.fragments.ForYouFragment
 import com.dznow.fragments.HomeFragment
 import com.dznow.models.ArticleModel
 import com.dznow.models.CategoryModel
+import com.dznow.services.helpers.App
+import com.dznow.services.helpers.Bookmarks
 
 // for using ids directly without findViewById
 import kotlinx.android.synthetic.main.activity_main.*;

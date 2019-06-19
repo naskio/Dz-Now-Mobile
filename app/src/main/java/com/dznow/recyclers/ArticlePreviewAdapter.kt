@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.ToggleButton
 import com.dznow.R
 import com.dznow.activities.ArticleActivity
 import com.dznow.models.ArticleModel
@@ -14,6 +15,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.layout_article_preview.view.*
 import kotlin.collections.ArrayList
 import com.dznow.services.WEBSITE
+import com.dznow.services.helpers.Bookmarks
 import com.dznow.utils.shareAction
 import com.dznow.utils.timeSince
 
@@ -44,6 +46,7 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
             .centerCrop()
             .into(holder.articleCover)
         holder.article = article
+        holder.buttonBookmark.isChecked = Bookmarks().isBookmarked(article)
     }
 
     // Article Preview Holder
@@ -55,16 +58,19 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
         val minutesRead: TextView
         val articleCover: ImageView
         val minutes_read_template: String
+        val buttonBookmark : ToggleButton
 
         init {
             itemView.setOnClickListener(this)
             itemView.buttonShare.setOnClickListener { buttonShareAction() }
+            itemView.buttonBookmark.setOnClickListener { buttonBookmarkAction() }
             sourceName = itemView.textViewArticleSource
             createdAt = itemView.textViewArticleTimeSince
             title = itemView.textViewArticleTitle
             minutesRead = itemView.textViewArticleMinutesRead
             articleCover = itemView.imageViewArticleCover
             minutes_read_template = itemView.context.resources.getString(R.string.tv_sub_item_time)
+            buttonBookmark = itemView.buttonBookmark
         }
 
         override fun onClick(view: View) {
@@ -86,6 +92,10 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
                 article?.title,
                 "${itemView.context.getString(R.string.share_article_content)}${WEBSITE}${article?.url}"
             )
+        }
+
+        fun buttonBookmarkAction() {
+            Bookmarks().bookmark(article)
         }
     }
 }
