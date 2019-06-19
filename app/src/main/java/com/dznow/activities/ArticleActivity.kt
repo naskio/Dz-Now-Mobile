@@ -40,7 +40,7 @@ class ArticleActivity : AppCompatActivity() {
         textViewArticleContent.text = content
         textViewArticleMinutesRead.text = String.format(resources.getString(R.string.tv_sub_item_time), minutesRead)
         Picasso.get().load(coverUrl)
-            .placeholder(R.drawable.ic_launcher_foreground)
+            .placeholder(R.drawable.placeholder_gray)
             .fit()
             .centerCrop()
             .into(imageViewArticleCover)

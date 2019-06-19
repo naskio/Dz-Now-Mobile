@@ -21,7 +21,7 @@
                 android:id="@+id/tv_item_cover"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
-                android:src="@drawable/ic_launcher_foreground"
+                android:src="@drawable/placeholder_gray"
                 android:background="@color/colorGrayIcons"
                 android:contentDescription="@string/image_description_cover"
         />

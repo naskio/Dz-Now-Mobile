@@ -30,7 +30,7 @@ class CategoryPreviewAdapter(private val categories: ArrayList<CategoryModel>) :
         val category = categories[position]
         holder.textView.text = category.name
         Picasso.get().load(category.background_url)
-            .placeholder(R.drawable.ic_launcher_foreground)
+            .placeholder(R.drawable.placeholder_white)
             .fit()
             .centerCrop()
             .into(holder.icon)
