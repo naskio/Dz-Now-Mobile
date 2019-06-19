@@ -67,7 +67,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // TODO: Set the default locale to match the language of the application ("fr" / "ar")
-        Locale.setDefault(Locale("fr"))
 
         // fetching data
         latest = this.intent.getParcelableArrayListExtra<ArticleModel>("latest")

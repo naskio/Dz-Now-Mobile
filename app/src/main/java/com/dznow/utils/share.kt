@@ -8,7 +8,7 @@ import com.dznow.services.WEBSITE
 import javax.security.auth.Subject
 
 fun shareAction(context: Context, title: String?, subject: String?, text: String?) {
-    val i = Intent(Intent.ACTION_SEND)
+    val i = Intent(Intent.ACTION_SEND).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
     i.type = "text/plain"
     i.putExtra(Intent.EXTRA_SUBJECT, subject)
     i.putExtra(Intent.EXTRA_TEXT, text)
