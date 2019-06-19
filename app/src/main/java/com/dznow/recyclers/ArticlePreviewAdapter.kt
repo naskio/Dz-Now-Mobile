@@ -41,7 +41,7 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
         holder.title.text = article.title
         holder.minutesRead.text = String.format(holder.minutes_read_template, article.minutes_read)
         Picasso.get().load(article.cover_url)
-            .placeholder(R.drawable.ic_launcher_foreground)
+            .placeholder(R.drawable.placeholder_gray)
             .fit()
             .centerCrop()
             .into(holder.articleCover)

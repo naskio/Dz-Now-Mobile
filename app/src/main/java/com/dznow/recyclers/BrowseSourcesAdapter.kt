@@ -25,7 +25,7 @@ class BrowseSourcesAdapter(private val sources: List<SourceModel>) :
         val source = sources[position]
         holder.targetName.text = source.name
         Picasso.get().load(source.logo_url)
-            .placeholder(R.drawable.ic_launcher_foreground)
+            .placeholder(R.drawable.placeholder_white)
             .fit()
             .centerCrop(Gravity.START)
             .into(holder.sourceCover)

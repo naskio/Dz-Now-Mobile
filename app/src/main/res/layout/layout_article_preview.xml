@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/article_cover"
                 android:background="@color/colorWhite"
-                android:src="@drawable/ic_launcher_foreground"
+                android:src="@drawable/placeholder_white"
                 android:contentDescription="@string/image_description_cover"
         />
 

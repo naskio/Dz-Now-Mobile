@@ -25,7 +25,7 @@ class BrowseCategoriesAdapter(private val categories: List<CategoryModel>) :
         val category = categories[position]
         holder.targetName.text = category.name
         Picasso.get().load(category.background_url)
-            .placeholder(R.drawable.ic_launcher_foreground)
+            .placeholder(R.drawable.placeholder_white)
             .fit()
             .centerCrop()
             .into(holder.categoryCover)
