@@ -49,11 +49,11 @@ class CategoryPreviewAdapter(private val categories: ArrayList<CategoryModel>) :
     }
 
     fun buttonStarSetImage (buttonStar : ImageButton, checked : Boolean) {
-        if (checked) {
+        if (!checked) {
             buttonStar.setImageResource(R.drawable.ic_outline_star_border_24px)
         }
         else {
-            buttonStar.setImageResource(R.drawable.ic_outline_bookmark_border_24px)
+            buttonStar.setImageResource(R.drawable.ic_baseline_star_24px)
         }
     }
 

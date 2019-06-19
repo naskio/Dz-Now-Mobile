@@ -11,11 +11,15 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorWhite">
+            android:background="@color/colorWhite"
+    >
 
         <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerViewBookmarks"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_x2"
+                android:layout_marginBottom="@dimen/margin_x1"
+        />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

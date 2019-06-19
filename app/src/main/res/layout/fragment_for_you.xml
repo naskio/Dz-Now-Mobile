@@ -5,7 +5,6 @@
         tools:context=".fragments.ForYouFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorWhite"
         android:fillViewport="true"
 >
     <LinearLayout
@@ -16,6 +15,7 @@
                 android:id="@+id/recyclerViewCategories"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_x1"
         />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
