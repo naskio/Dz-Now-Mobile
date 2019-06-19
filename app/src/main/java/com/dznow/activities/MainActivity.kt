@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.navigation_for_you -> {
                 fManager.beginTransaction().hide(active).show(forYouFragment).commit()
+                forYouFragment.onResume()
                 toolbarTitle.text = getString(R.string.title_for_you)
                 active = forYouFragment
                 return@OnNavigationItemSelectedListener true

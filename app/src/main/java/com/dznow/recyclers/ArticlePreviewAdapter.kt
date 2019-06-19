@@ -15,10 +15,9 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.layout_article_preview.view.*
 import kotlin.collections.ArrayList
 import com.dznow.services.WEBSITE
-import com.dznow.services.helpers.Bookmarks
+import com.dznow.services.storage.Bookmarks
 import com.dznow.utils.shareAction
 import com.dznow.utils.timeSince
-import kotlinx.android.synthetic.main.activity_article.*
 
 class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
     RecyclerView.Adapter<ArticlePreviewAdapter.ArticlePreviewHolder>() {

@@ -1,4 +1,4 @@
-package com.dznow.services
+package com.dznow.services.storage
 
 val bookmarksFileName = "bookmarks.json"
 

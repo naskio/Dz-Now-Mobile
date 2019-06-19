@@ -1,6 +1,7 @@
-package com.dznow.services.helpers
+package com.dznow.services.storage
 
 import android.content.Context
+import com.dznow.services.helpers.App
 
 fun retrieve(fileName: String) : String {
     return App.appContext?.openFileInput(fileName)?.bufferedReader().use { it?.readText() }.toString()

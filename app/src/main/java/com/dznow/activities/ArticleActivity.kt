@@ -7,7 +7,7 @@ import com.dznow.R
 import com.dznow.models.ArticleModel
 import com.dznow.models.SourceModel
 import com.dznow.services.WEBSITE
-import com.dznow.services.helpers.Bookmarks
+import com.dznow.services.storage.Bookmarks
 import com.dznow.utils.shareAction
 import com.dznow.utils.timeSince
 import com.squareup.picasso.Picasso

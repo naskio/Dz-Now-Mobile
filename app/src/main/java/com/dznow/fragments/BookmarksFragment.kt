@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.dznow.R
 import com.dznow.recyclers.ArticlePreviewAdapter
-import com.dznow.services.helpers.Bookmarks
+import com.dznow.services.storage.Bookmarks
 
 class BookmarksFragment : Fragment() {
 

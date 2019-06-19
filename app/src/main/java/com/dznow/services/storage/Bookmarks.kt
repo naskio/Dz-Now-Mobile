@@ -1,7 +1,7 @@
-package com.dznow.services.helpers
+package com.dznow.services.storage
 
 import com.dznow.models.ArticleModel
-import com.dznow.services.bookmarksFileName
+import com.dznow.services.helpers.ArticleFeed
 import com.google.gson.GsonBuilder
 
 class Bookmarks private constructor(){
