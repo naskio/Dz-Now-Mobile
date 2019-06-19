@@ -35,25 +35,27 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.navigation_home -> {
                 fManager.beginTransaction().hide(active).show(homeFragment).commit()
-                toolbarTitle.text = getString(R.string.app_name);
+                homeFragment.onResume()
+                toolbarTitle.text = getString(R.string.app_name)
                 active = homeFragment
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_for_you -> {
                 fManager.beginTransaction().hide(active).show(forYouFragment).commit()
-                toolbarTitle.text = getString(R.string.title_for_you);
+                toolbarTitle.text = getString(R.string.title_for_you)
                 active = forYouFragment
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_browse -> {
                 fManager.beginTransaction().hide(active).show(browseFragment).commit()
-                toolbarTitle.text = getString(R.string.title_browse);
+                toolbarTitle.text = getString(R.string.title_browse)
                 active = browseFragment
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_bookmarks -> {
                 fManager.beginTransaction().hide(active).show(bookmarksFragment).commit()
-                toolbarTitle.text = getString(R.string.title_bookmarks);
+                bookmarksFragment.onResume()
+                toolbarTitle.text = getString(R.string.title_bookmarks)
                 active = bookmarksFragment
                 return@OnNavigationItemSelectedListener true
             }

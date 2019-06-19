@@ -29,4 +29,9 @@ class BookmarksFragment : Fragment() {
 
         return rootView
     }
+
+    override fun onResume() {
+        super.onResume()
+        bookmarksRecyclerView.adapter = ArticlePreviewAdapter(Bookmarks.getInstance().getBookmarks())
+    }
 }
