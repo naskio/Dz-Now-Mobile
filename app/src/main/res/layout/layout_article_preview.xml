@@ -91,17 +91,17 @@
             android:layout_below="@id/textViewArticleTitle"
             android:layout_toStartOf="@id/buttonBookmark"/>
 
-    <!--<ImageButton-->
-            <!--android:id="@+id/buttonBookmark"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:src="@drawable/ic_outline_bookmark_border_24px"-->
-            <!--android:contentDescription="@string/button_description_settings"-->
-            <!--style="@style/Widget.AppCompat.ActionButton"-->
-            <!--android:layout_below="@id/textViewArticleTitle"-->
-            <!--android:layout_alignEnd="@id/imageCoverContainer"/>-->
+    <ImageButton
+            android:id="@+id/buttonBookmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_outline_bookmark_border_24px"
+            android:contentDescription="@string/button_description_settings"
+            style="@style/Widget.AppCompat.ActionButton"
+            android:layout_below="@id/textViewArticleTitle"
+            android:layout_alignEnd="@id/imageCoverContainer"/>
 
-    <ToggleButton
+    <!--<ToggleButton
             android:id="@+id/buttonBookmark"
             android:layout_width="@dimen/margin_x4"
             android:layout_height="@dimen/margin_x4"
@@ -112,5 +112,5 @@
             android:textOff=""
             android:contentDescription="@string/button_description_settings"
             android:layout_below="@id/textViewArticleTitle"
-            android:layout_alignEnd="@id/imageCoverContainer"/>
+            android:layout_alignEnd="@id/imageCoverContainer"/>-->
 </RelativeLayout>

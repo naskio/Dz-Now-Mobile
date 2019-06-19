@@ -1,7 +1,6 @@
 package com.dznow.models
 
 import android.os.Parcelable
-import com.dznow.models.ArticleModel
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
