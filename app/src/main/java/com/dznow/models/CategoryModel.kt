@@ -10,5 +10,5 @@ data class CategoryModel(
     val background_url: String,
     val background_color: String,
     val text_color: String,
-    val articles: ArrayList<ArticleModel>?
+    var articles: ArrayList<ArticleModel>?
 ) : Parcelable

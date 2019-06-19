@@ -1,11 +1,11 @@
 package com.dznow.services.storage
 
 import com.dznow.models.SourceModel
-import com.dznow.services.helpers.SourceFeed
+import com.dznow.services.helpers.SourcesFeed
 import com.google.gson.GsonBuilder
 
 class ForYouSources private constructor(){
-    private var starringSources : SourceFeed
+    private var starringSources : SourcesFeed
 
     init {
         val gson = GsonBuilder().create()
@@ -13,7 +13,7 @@ class ForYouSources private constructor(){
         if (fileContent == "") {
             fileContent = "{ categories: [] }"
         }
-        starringSources = gson.fromJson(fileContent, SourceFeed::class.java)
+        starringSources = gson.fromJson(fileContent, SourcesFeed::class.java)
     }
 
     fun star (source : SourceModel) {
@@ -36,7 +36,7 @@ class ForYouSources private constructor(){
 
     fun saveStarringSources() {
         val gson = GsonBuilder().create()
-        val starringSourcesJson = gson.toJson(starringSources, SourceFeed::class.java)
+        val starringSourcesJson = gson.toJson(starringSources, SourcesFeed::class.java)
         store(forYouSourcesFileName, starringSourcesJson)
     }
 

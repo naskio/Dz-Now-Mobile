@@ -1,5 +1,7 @@
 package com.dznow.recyclers
 
+import android.content.Intent
+import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -7,7 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.dznow.R
+import com.dznow.activities.CategoryActivity
 import com.dznow.models.CategoryModel
+import com.dznow.services.categoriesAPI
+import com.dznow.services.categoryAPI
 import com.dznow.services.storage.ForYouCategories
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.layout_category_preview.view.*
@@ -28,7 +33,7 @@ class CategoryPreviewAdapter(private val categories: ArrayList<CategoryModel>) :
 
     override fun onBindViewHolder(holder: CategoryPreviewHolder, position: Int) {
         val category = categories[position]
-        holder.textView.text = category.name
+        holder.categoryName.text = category.name
         Picasso.get().load(category.background_url)
             .placeholder(R.drawable.ic_launcher_foreground)
             .fit()
@@ -59,7 +64,7 @@ class CategoryPreviewAdapter(private val categories: ArrayList<CategoryModel>) :
 
     inner class CategoryPreviewHolder(itemView: View, var category: CategoryModel? = null) :
         RecyclerView.ViewHolder(itemView), View.OnClickListener {
-        val textView: TextView
+        val categoryName: TextView
         val recyclerView: RecyclerView
         val buttonShowMore: Button
         val icon: ImageView
@@ -68,8 +73,8 @@ class CategoryPreviewAdapter(private val categories: ArrayList<CategoryModel>) :
         init {
             itemView.setOnClickListener(this)
             itemView.buttonStar.setOnClickListener { buttonStarAction() }
-            textView = itemView.tv_item_title
-            recyclerView = itemView.rv_sub_item
+            categoryName = itemView.tv_item_title
+            recyclerView = itemView.recyclerViewArticles
             buttonShowMore = itemView.buttonShowMore
             icon = itemView.categoryBackground
             buttonShowMore.setOnClickListener {
@@ -79,11 +84,14 @@ class CategoryPreviewAdapter(private val categories: ArrayList<CategoryModel>) :
         }
 
         override fun onClick(view: View) {
-            // TODO: open another activity with details
-            Toast.makeText(
-                view.context,
-                "Clicked Position = " + adapterPosition, Toast.LENGTH_SHORT
-            ).show()
+            val intent = Intent(view.context, CategoryActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            intent.putExtra("categoryId", category?.id)
+            intent.putExtra("categoryName", category?.name)
+            intent.putExtra("categoryBackgroundUrl", category?.background_url)
+            intent.putExtra("categoryBackgroundColor", category?.background_color)
+            intent.putExtra("categoryTextColor", category?.text_color)
+            intent.putExtra("categoryArticles", category?.articles)
+            view.context.startActivity(intent)
         }
 
         fun buttonStarAction () {
