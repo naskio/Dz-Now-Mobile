@@ -5,40 +5,72 @@
         tools:context=".fragments.BrowseFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorWhite"
+        android:background="@color/colorWhiteBackground"
         android:fillViewport="true"
 >
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <LinearLayout
-                android:orientation="vertical"
+            android:layout_height="wrap_content"
+    >
+
+        <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:layout_marginTop="@dimen/margin_x1"
+        >
             <TextView
+                    style="@style/CategoryTextTitle"
+                    android:layout_marginTop="@dimen/margin_x3"
+                    android:layout_marginBottom="@dimen/margin_x3"
+                    android:layout_marginStart="@dimen/margin_x2"
+                    android:layout_marginEnd="@dimen/margin_x2"
                     android:id="@+id/title_category"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="@string/title_category" />
+                    android:text="@string/title_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
             <android.support.v7.widget.RecyclerView
                     android:id="@+id/recyclerViewCategories"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-        </LinearLayout>
-        <LinearLayout
-                android:orientation="vertical"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/title_category"
+                    android:layout_marginStart="@dimen/margin_x1_5"
+                    android:layout_marginEnd="@dimen/margin_x1_5"
+                    android:layout_marginBottom="@dimen/margin_x2"
+            />
+
+        </RelativeLayout>
+
+        <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:layout_marginTop="@dimen/margin_x1"
+                android:layout_marginBottom="@dimen/margin_x1"
+        >
             <TextView
+                    style="@style/CategoryTextTitle"
+                    android:layout_marginTop="@dimen/margin_x3"
+                    android:layout_marginBottom="@dimen/margin_x3"
+                    android:layout_marginStart="@dimen/margin_x2"
+                    android:layout_marginEnd="@dimen/margin_x2"
                     android:id="@+id/title_source"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="@string/title_source" />
+                    android:text="@string/title_source"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
             <android.support.v7.widget.RecyclerView
                     android:id="@+id/rv_sources"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-        </LinearLayout>
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/title_source"
+                    android:layout_marginStart="@dimen/margin_x1_5"
+                    android:layout_marginEnd="@dimen/margin_x1_5"
+                    android:layout_marginBottom="@dimen/margin_x2"
+            />
+
+        </RelativeLayout>
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
