@@ -8,7 +8,6 @@ import com.dznow.models.ArticleModel
 import com.dznow.models.CategoryModel
 import com.dznow.services.homeService
 
-
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

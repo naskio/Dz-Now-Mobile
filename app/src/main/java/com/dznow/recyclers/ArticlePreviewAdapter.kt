@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import com.dznow.R
@@ -14,6 +15,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.layout_article_preview.view.*
 import kotlin.collections.ArrayList
 import com.dznow.services.WEBSITE
+import com.dznow.services.storage.Bookmarks
 import com.dznow.utils.shareAction
 import com.dznow.utils.timeSince
 
@@ -44,6 +46,21 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
             .centerCrop()
             .into(holder.articleCover)
         holder.article = article
+        if (Bookmarks.getInstance().isBookmarked(article)) {
+            buttonBookmarkSetImage(holder.buttonBookmark, true)
+        }
+        else {
+            buttonBookmarkSetImage(holder.buttonBookmark, false)
+        }
+    }
+
+    private fun buttonBookmarkSetImage (buttonBookmark : ImageButton, checked : Boolean) {
+        if (checked) {
+            buttonBookmark.setImageResource(R.drawable.ic_outline_bookmark_24px)
+        }
+        else {
+            buttonBookmark.setImageResource(R.drawable.ic_outline_bookmark_border_24px)
+        }
     }
 
     // Article Preview Holder
@@ -55,20 +72,24 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
         val minutesRead: TextView
         val articleCover: ImageView
         val minutes_read_template: String
+        val buttonBookmark : ImageButton
 
         init {
             itemView.setOnClickListener(this)
             itemView.buttonShare.setOnClickListener { buttonShareAction() }
+            itemView.buttonBookmark.setOnClickListener { buttonBookmarkAction() }
             sourceName = itemView.textViewArticleSource
             createdAt = itemView.textViewArticleTimeSince
             title = itemView.textViewArticleTitle
             minutesRead = itemView.textViewArticleMinutesRead
             articleCover = itemView.imageViewArticleCover
             minutes_read_template = itemView.context.resources.getString(R.string.tv_sub_item_time)
+            buttonBookmark = itemView.buttonBookmark
         }
 
         override fun onClick(view: View) {
             val intent = Intent(view.context, ArticleActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            intent.putExtra("id", article?.id)
             intent.putExtra("sourceName", article?.source?.name)
             intent.putExtra("title", article?.title)
             intent.putExtra("content", article?.content)
@@ -76,6 +97,7 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
             intent.putExtra("cover_url", article?.cover_url)
             intent.putExtra("created_at", article?.created_at)
             intent.putExtra("url", article?.url)
+            intent.putExtra("article", article)
             view.context.startActivity(intent)
         }
 
@@ -86,6 +108,17 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
                 article?.title,
                 "${itemView.context.getString(R.string.share_article_content)}${WEBSITE}${article?.url}"
             )
+        }
+
+        fun buttonBookmarkAction() {
+            if (Bookmarks.getInstance().isBookmarked(article!!)) {
+                Bookmarks.getInstance().unBookmark(article!!)
+                buttonBookmarkSetImage(buttonBookmark, false)
+            }
+            else {
+                Bookmarks.getInstance().bookmark(article!!)
+                buttonBookmarkSetImage(buttonBookmark, true)
+            }
         }
     }
 }

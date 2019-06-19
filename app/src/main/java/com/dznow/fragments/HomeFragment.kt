@@ -52,4 +52,10 @@ class HomeFragment : Fragment() {
 
         return rootView
     }
+
+    override fun onResume() {
+        super.onResume()
+        latestRecyclerView.adapter = ArticlePreviewAdapter(latest)
+        categoriesRecyclerView.adapter = CategoryPreviewAdapter(categories)
+    }
 }
