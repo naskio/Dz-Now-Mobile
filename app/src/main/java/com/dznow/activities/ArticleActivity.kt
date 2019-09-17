@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
 import com.dznow.R
@@ -46,7 +47,11 @@ class ArticleActivity : AppCompatActivity(),TextToSpeech.OnInitListener,
         val source = SourceModel(0, sourceName, "", "", "", "", null)
         val article = ArticleModel(id, title, content, minutesRead, coverUrl, createdAt, null, source, url)
         setContentView(R.layout.activity_article)
+        var lang = url.substring(1,3)
         button_speech = this.buttonSpeech
+        if (lang != "fr") {
+            button_speech!!.visibility = View.INVISIBLE
+        }
         text_view_article_title = this.textViewArticleTitle
         text_view_article_content = this.textViewArticleContent
         //buttonSpeech!!.isEnabled = false
