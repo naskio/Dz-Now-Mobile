@@ -9,6 +9,7 @@ import android.widget.*
 import com.dznow.R
 import com.dznow.models.ContactModel
 import kotlinx.android.synthetic.main.layout_contact_preview.view.*
+import com.dznow.services.helpers.App
 
 class ContactsAdapter (private val contacts: ArrayList<ContactModel>, message : String) :
     RecyclerView.Adapter<ContactsAdapter.ContactsHolder>() {
@@ -46,6 +47,7 @@ class ContactsAdapter (private val contacts: ArrayList<ContactModel>, message : 
             buttonSMS.setOnClickListener{
                 var smsManager = SmsManager.getDefault()
                 smsManager.sendTextMessage(number.text.toString(), null, message, null, null)
+                Toast.makeText(App.appContext, "Message envoyé avec succès", Toast.LENGTH_SHORT).show()
             }
         }
     }
