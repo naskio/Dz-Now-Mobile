@@ -131,12 +131,12 @@ class ArticleActivity : AppCompatActivity(),TextToSpeech.OnInitListener,
         if (!isSpeaking) {
             val text = textViewArticleTitle!!.text.toString() + textViewArticleContent!!.text.toString()
             tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null,"")
-            button_speech!!.setImageResource(R.drawable.ic_outline_voice_over_off_24px)
+            button_speech!!.setImageResource(R.drawable.ic_stop_outlined_24dp)
             isSpeaking = true
         }
         else {
             tts!!.stop()
-            button_speech!!.setImageResource(R.drawable.ic_outline_record_voice_over_24px)
+            button_speech!!.setImageResource(R.drawable.ic_play_outlined_24dp)
             isSpeaking = false
         }
     }

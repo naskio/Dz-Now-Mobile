@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="extra_light">"100"</string>
-    <string name="light">"200"</string>
-    <string name="demi">"300"</string>
-    <string name="regular">"400"</string>
-    <string name="medium">"500"</string>
-    <string name="semi_bold">"600"</string>
-    <string name="bold">"700"</string>
-    <string name="black">"800"</string>
-    <string name="extra_black">"900"</string>
+    <string name="extra_light" translatable="false">"100"</string>
+    <string name="light" translatable="false">"200"</string>
+    <string name="demi" translatable="false">"300"</string>
+    <string name="regular" translatable="false">"400"</string>
+    <string name="medium" translatable="false">"500"</string>
+    <string name="semi_bold" translatable="false">"600"</string>
+    <string name="bold" translatable="false">"700"</string>
+    <string name="black" translatable="false">"800"</string>
+    <string name="extra_black" translatable="false">"900"</string>
 </resources>

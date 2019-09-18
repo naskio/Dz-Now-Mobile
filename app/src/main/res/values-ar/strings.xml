@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">الجزائر الآن</string>
+    <string name="button_bookmarks">مسجلة</string>
+    <string name="button_description_settings">الإعدادات</string>
+    <string name="button_show_more">إظهار المزيد</string>
+    <string name="share_article_content">خبر جديد:</string>
+    <string name="share_article_title">نشر الخبر</string>
+    <string name="title_bookmarks">المسجلة</string>
+    <string name="title_browse">تصفح</string>
+    <string name="title_category">الفئة</string>
+    <string name="title_for_you">لك</string>
+    <string name="title_home">الرئيسية</string>
+    <string name="title_latest">احدث الأخبار</string>
+    <string name="title_source">المصدر</string>
+    <string name="tv_sub_item_content">محتوى المقال</string>
+    <string name="tv_sub_item_date">١٣/١٣/١٣ ١٠:١٠</string>
+    <string name="tv_sub_item_source">الهداف</string>
+    <string name="tv_sub_item_time">" %1$d دقيقة قراءة"</string>
+    <string name="tv_sub_item_title">العنوان</string>
+    <string name="title_settings">الإعدادات</string>
+    <string name="language_arabic">العربية</string>
+    <string name="language_french">الفرنسية</string>
+    <string name="skip">تخطي</string>
+    <string name="title_login">الإتصال</string>
+</resources>

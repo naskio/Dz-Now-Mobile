@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dz Now</string>
+    <string name="button_bookmarks">Signets</string>
+    <string name="button_description_settings">Préférences</string>
+    <string name="button_show_more">Afficher plus</string>
+    <string name="share_article_content">Voir cet article:</string>
+    <string name="share_article_title">Partager l\'article</string>
+    <string name="title_bookmarks">Signets</string>
+    <string name="title_browse">Parcourir</string>
+    <string name="title_category">Par catégorie</string>
+    <string name="title_for_you">Pour vous</string>
+    <string name="title_home">Accueil</string>
+    <string name="title_latest">Dernières actualités</string>
+    <string name="title_source">Par source</string>
+    <string name="tv_sub_item_content">Contenu de l\'article</string>
+    <string name="tv_sub_item_date">13/06/2019 09:55</string>
+    <string name="tv_sub_item_source">Le Buteur</string>
+    <string name="tv_sub_item_time">%1$d min de lecture</string>
+    <string name="tv_sub_item_title">Bounedjah reçoit le trophée de meilleur buteur du championnat du Qatar,Bounedjah
+        reçoit le trophée de meilleur buteur du championnat du Qatar
+    </string>
+    <string name="title_settings">Préferences</string>
+    <string name="language_arabic">Arabe</string>
+    <string name="language_french">Français</string>
+    <string name="skip">continuer</string>
+    <string name="title_login">Connexion</string>
+</resources>

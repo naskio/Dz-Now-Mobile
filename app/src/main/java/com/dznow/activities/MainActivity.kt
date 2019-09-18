@@ -1,5 +1,6 @@
 package com.dznow.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
@@ -12,10 +13,35 @@ import com.dznow.fragments.ForYouFragment
 import com.dznow.fragments.HomeFragment
 import com.dznow.models.ArticleModel
 import com.dznow.models.CategoryModel
+import com.dznow.services.LocaleHelper
 
 // for using ids directly without findViewById
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.collections.ArrayList
+
+// BACKEND:
+// TODO: get multiple categories by IDs (without article content)
+// TODO: get multiple sources by IDs (without article content)
+// TODO: get multiple articles Preview (without content) by IDs for Bookmarks
+// TODO: get article details (+ content) by ID
+// TODO: use only IDs to save articles, categories, sources
+// TODO: make sure don't duplicate articles in the home feed (in the same requests)
+// TODO: add Activity for Deep linking
+// TODO: add deep linking in the web template
+// FRONTEND:
+// TODO: use thread,service for requests (optimize requests)
+// TODO: use component architecture and MVVM architecture
+// TODO: image overlay (browse fragment)
+// TODO: navigate by time (in browse)
+// TODO: settings
+// TODO: multi-lang
+// TODO: dark Mode
+// TODO: settings text size,opacity etc
+// TODO: tablet special view
+
+// TODO: make repo private
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -67,6 +93,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+//        val editor = this.getSharedPreferences("language", 0).edit()
+//        editor.putString("language", "ar")
+//        editor.apply()
+
+//        LocaleHelper.setLocale(this, "fr")
+//        recreate()
+
+        buttonSettings.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            startActivity(intent)
+        }
 
         // fetching data
         latest = this.intent.getParcelableArrayListExtra<ArticleModel>("latest")

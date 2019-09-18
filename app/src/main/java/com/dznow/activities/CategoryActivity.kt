@@ -33,31 +33,35 @@ class CategoryActivity : AppCompatActivity() {
         buttonBack?.setOnClickListener {
             finish()
         }
-        val category = CategoryModel(categoryId, categoryName, categoryBackgroundUrl, categoryBackgroundColor, categoryTextColor, null)
+        val category = CategoryModel(
+            categoryId,
+            categoryName,
+            categoryBackgroundUrl,
+            categoryBackgroundColor,
+            categoryTextColor,
+            null
+        )
         if (ForYouCategories.getInstance().isStarred(category)) {
             buttonStarSetImage(buttonStar, true)
-        }
-        else {
+        } else {
             buttonStarSetImage(buttonStar, false)
         }
         buttonStar.setOnClickListener {
-            if (ForYouCategories.getInstance().isStarred(category!!)) {
-                ForYouCategories.getInstance().unStar(category!!)
+            if (ForYouCategories.getInstance().isStarred(category)) {
+                ForYouCategories.getInstance().unStar(category)
                 buttonStarSetImage(buttonStar, false)
-            }
-            else {
+            } else {
                 category.articles = articles
-                ForYouCategories.getInstance().star(category!!)
+                ForYouCategories.getInstance().star(category)
                 buttonStarSetImage(buttonStar, true)
             }
         }
     }
 
-    fun buttonStarSetImage (buttonStar : ImageButton, checked : Boolean) {
+    fun buttonStarSetImage(buttonStar: ImageButton, checked: Boolean) {
         if (!checked) {
             buttonStar.setImageResource(R.drawable.ic_outline_star_border_24px)
-        }
-        else {
+        } else {
             buttonStar.setImageResource(R.drawable.ic_baseline_star_24px)
         }
     }

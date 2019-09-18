@@ -33,9 +33,11 @@ android {
             implementation("com.squareup.okhttp3:okhttp:3.14.2")
             implementation 'com.google.code.gson:gson:2.8.5'
             implementation 'com.squareup.picasso:picasso:2.71828'
+            implementation 'com.google.android.gms:play-services-auth:16.0.1'
             testImplementation 'junit:junit:4.12'
             androidTestImplementation 'com.android.support.test:runner:1.0.2'
             androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
         }
     }
     // for okhttp to work properly (https://github.com/square/okhttp/issues/4668)
@@ -51,4 +53,6 @@ android {
 
 dependencies {
     implementation 'com.android.support.constraint:constraint-layout:+'
+    implementation 'com.android.support:support-annotations:28.0.0'
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
 }
