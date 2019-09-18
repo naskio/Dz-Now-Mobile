@@ -39,6 +39,8 @@ import kotlin.collections.ArrayList
 // TODO: settings text size,opacity etc
 // TODO: tablet special view
 
+// TODO: make repo private
+
 
 
 class MainActivity : AppCompatActivity() {
