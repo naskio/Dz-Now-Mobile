@@ -64,6 +64,16 @@
             />
 
             <ImageButton
+                android:id="@+id/buttonShareContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_outline_mobile_screen_share_24px"
+                android:layout_gravity="end"
+                android:contentDescription="@string/button_description_settings"
+                style="@style/Widget.AppCompat.ActionButton"
+            />
+
+            <ImageButton
                 android:id="@+id/buttonSpeech"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
