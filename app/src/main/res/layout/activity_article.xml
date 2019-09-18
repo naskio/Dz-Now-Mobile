@@ -67,7 +67,7 @@
                 android:id="@+id/buttonSpeech"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_outline_record_voice_over_24px"
+                android:src="@drawable/ic_play_outlined_24dp"
                 android:layout_gravity="end"
                 android:contentDescription="@string/button_description_settings"
                 style="@style/Widget.AppCompat.ActionButton"

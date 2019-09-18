@@ -23,4 +23,6 @@
     <string name="title_settings">Préferences</string>
     <string name="language_arabic">Arabe</string>
     <string name="language_french">Français</string>
+    <string name="skip">continuer</string>
+    <string name="title_login">Connexion</string>
 </resources>

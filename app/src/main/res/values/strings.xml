@@ -30,4 +30,7 @@
     <string name="title_settings">Settings</string>
     <string name="language_arabic">Arabe</string>
     <string name="language_french">Français</string>
+    <string name="skip">skip</string>
+    <string name="title_login">Login</string>
+    <string name="server_client_id" translatable="false">252296444280-4f8cvbso5p7k6qf7mo0flqsraldrt2ir.apps.googleusercontent.com</string>
 </resources>

@@ -11,7 +11,10 @@ import okhttp3.OkHttpClient
 import okhttp3.Response
 import java.io.IOException
 
-fun homeService(success: (ArrayList<ArticleModel>, ArrayList<CategoryModel>) -> Unit, failure: () -> Unit) {
+fun homeService(
+    success: (ArrayList<ArticleModel>, ArrayList<CategoryModel>) -> Unit,
+    failure: () -> Unit
+) {
     val url = homeAPI("fr")
     val client = OkHttpClient()
     val request = OkHttpRequest(client)
