@@ -9,6 +9,7 @@
     <string name="button_bookmarks">Bookmarks</string>
     <string name="title_category">Par catégorie</string>
     <string name="title_source">Par source</string>
+    <string name="title_contact" translatable="false">Par contact</string>
     <string name="image_description_cover" translatable="false">Article Cover</string>
     <string name="share_article_title">Partager l\'article</string>
     <string name="share_article_content">Voir cet article:</string>

@@ -21,6 +21,7 @@ import kotlinx.android.synthetic.main.activity_article.textViewArticleTimeSince
 import kotlinx.android.synthetic.main.activity_article.textViewArticleMinutesRead
 import kotlinx.android.synthetic.main.activity_article.textViewArticleTitle
 import java.util.*
+import android.content.Intent
 
 // TODO: add get article API
 // TODO: use get article from API instead (to solve TooLargeException)
@@ -81,7 +82,7 @@ class ArticleActivity : AppCompatActivity(),TextToSpeech.OnInitListener,
                 this,
                 getString(R.string.share_article_title),
                 intent.getStringExtra("title"),
-                "${getString(R.string.share_article_content)} $WEBSITE${url}"
+                "${getString(com.dznow.R.string.share_article_content)} $WEBSITE${url}"
             )
         }
         buttonBookmark?.setOnClickListener {
@@ -93,6 +94,11 @@ class ArticleActivity : AppCompatActivity(),TextToSpeech.OnInitListener,
                 Bookmarks.getInstance().bookmark(article)
                 buttonBookmarkSetImage(buttonBookmark, true)
             }
+        }
+        buttonShareContact?.setOnClickListener {
+            val intent = Intent(this, ContactsActivity::class.java)
+            intent.putExtra("url", url)
+            startActivity(intent)
         }
     }
 
