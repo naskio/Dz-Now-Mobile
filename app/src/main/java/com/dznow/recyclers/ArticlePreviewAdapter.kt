@@ -48,17 +48,15 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
         holder.article = article
         if (Bookmarks.getInstance().isBookmarked(article)) {
             buttonBookmarkSetImage(holder.buttonBookmark, true)
-        }
-        else {
+        } else {
             buttonBookmarkSetImage(holder.buttonBookmark, false)
         }
     }
 
-    private fun buttonBookmarkSetImage (buttonBookmark : ImageButton, checked : Boolean) {
+    private fun buttonBookmarkSetImage(buttonBookmark: ImageButton, checked: Boolean) {
         if (checked) {
             buttonBookmark.setImageResource(R.drawable.ic_outline_bookmark_24px)
-        }
-        else {
+        } else {
             buttonBookmark.setImageResource(R.drawable.ic_outline_bookmark_border_24px)
         }
     }
@@ -72,7 +70,7 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
         val minutesRead: TextView
         val articleCover: ImageView
         val minutes_read_template: String
-        val buttonBookmark : ImageButton
+        val buttonBookmark: ImageButton
 
         init {
             itemView.setOnClickListener(this)
@@ -88,7 +86,10 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
         }
 
         override fun onClick(view: View) {
-            val intent = Intent(view.context, ArticleActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            val intent = Intent(
+                view.context,
+                ArticleActivity::class.java
+            ).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
             intent.putExtra("id", article?.id)
             intent.putExtra("sourceName", article?.source?.name)
             intent.putExtra("title", article?.title)
@@ -97,6 +98,7 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
             intent.putExtra("cover_url", article?.cover_url)
             intent.putExtra("created_at", article?.created_at)
             intent.putExtra("url", article?.url)
+            intent.putExtra("videos", article?.videos)
             view.context.startActivity(intent)
         }
 
@@ -113,8 +115,7 @@ class ArticlePreviewAdapter(private val articles: ArrayList<ArticleModel>) :
             if (Bookmarks.getInstance().isBookmarked(article!!)) {
                 Bookmarks.getInstance().unBookmark(article!!)
                 buttonBookmarkSetImage(buttonBookmark, false)
-            }
-            else {
+            } else {
                 Bookmarks.getInstance().bookmark(article!!)
                 buttonBookmarkSetImage(buttonBookmark, true)
             }

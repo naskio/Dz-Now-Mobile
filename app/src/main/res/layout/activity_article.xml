@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
->
+        android:layout_height="match_parent">
 
     <!--TOOLBAR-->
     <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-    >
+            android:layout_height="wrap_content">
 
         <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -21,67 +18,60 @@
                 android:layout_height="@dimen/navigation_bottom_height"
                 android:background="@color/colorWhite"
                 android:theme="@style/LightActionBar"
-                app:layout_scrollFlags="scroll|enterAlways|snap"
-        >
+                app:layout_scrollFlags="scroll|enterAlways|snap">
+
             <ImageButton
+                    android:id="@+id/buttonBack"
+                    style="@style/Widget.AppCompat.ActionButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_arrow_back_24px"
-                    android:contentDescription="@string/button_description_settings"
-                    style="@style/Widget.AppCompat.ActionButton"
                     android:layout_gravity="start"
-                    android:layout_marginEnd="@dimen/margin_x2"
-                    android:id="@+id/buttonBack"
-            />
+                    android:contentDescription="@string/button_description_settings"
+                    android:src="@drawable/ic_baseline_arrow_back_24px" />
 
             <TextView
+                    android:id="@+id/toolbarTitle"
+                    style="@style/LightTheme.ToolBarHomeTextTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/app_name"
-                    style="@style/LightTheme.ToolBarHomeTextTitle"
                     android:layout_gravity="start"
-                    android:id="@+id/toolbarTitle"/>
+                    android:text="@string/app_name" />
 
             <ImageButton
                     android:id="@+id/buttonBookmark"
+                    style="@style/Widget.AppCompat.ActionButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_outline_bookmark_border_24px"
                     android:layout_gravity="end"
-                    android:layout_marginEnd="@dimen/margin_x2"
                     android:contentDescription="@string/button_description_settings"
-                    style="@style/Widget.AppCompat.ActionButton"
-            />
+                    android:src="@drawable/ic_outline_bookmark_border_24px" />
 
             <ImageButton
                     android:id="@+id/buttonShare"
+                    style="@style/Widget.AppCompat.ActionButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_outline_share_24px"
                     android:layout_gravity="end"
                     android:contentDescription="@string/button_description_settings"
+                    android:src="@drawable/ic_outline_share_24px" />
+
+            <ImageButton
+                    android:id="@+id/buttonShareContact"
                     style="@style/Widget.AppCompat.ActionButton"
-            />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:contentDescription="@string/button_description_settings"
+                    android:src="@drawable/ic_sms_24dp" />
 
             <ImageButton
-                android:id="@+id/buttonShareContact"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_outline_mobile_screen_share_24px"
-                android:layout_gravity="end"
-                android:contentDescription="@string/button_description_settings"
-                style="@style/Widget.AppCompat.ActionButton"
-            />
-
-            <ImageButton
-                android:id="@+id/buttonSpeech"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_play_outlined_24dp"
-                android:layout_gravity="end"
-                android:contentDescription="@string/button_description_settings"
-                style="@style/Widget.AppCompat.ActionButton"
-            />
+                    android:id="@+id/buttonSpeech"
+                    style="@style/Widget.AppCompat.ActionButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:contentDescription="@string/button_description_settings"
+                    android:src="@drawable/ic_play_outlined_24dp" />
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
@@ -90,75 +80,68 @@
     <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    >
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_x2"
-                android:layout_marginBottom="@dimen/margin_x2"
-        >
+                android:layout_marginBottom="@dimen/margin_x2">
 
             <android.support.v7.widget.CardView
                     android:id="@+id/imageCoverContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/margin_x2"
                     android:layout_marginLeft="@dimen/margin_x2"
+                    android:layout_marginRight="@dimen/margin_x2"
                     card_view:cardCornerRadius="10dp"
-                    card_view:cardElevation="0dp"
-            >
+                    card_view:cardElevation="0dp">
 
                 <ImageView
                         android:id="@+id/imageViewArticleCover"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/article_cover"
                         android:background="@color/colorWhite"
-                        android:src="@drawable/ic_launcher_foreground"
                         android:contentDescription="@string/image_description_cover"
-                />
+                        android:src="@drawable/ic_launcher_foreground" />
 
             </android.support.v7.widget.CardView>
 
 
             <TextView
                     android:id="@+id/textViewArticleMinutesRead"
+                    style="@style/ArticleMetaTextTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tv_sub_item_time"
                     android:layout_below="@id/imageCoverContainer"
                     android:layout_alignStart="@id/imageCoverContainer"
                     android:layout_marginTop="@dimen/margin_x1"
                     android:layout_marginBottom="@dimen/margin_x1"
-                    style="@style/ArticleMetaTextTitle"
-            />
+                    android:text="@string/tv_sub_item_time" />
 
             <TextView
                     android:id="@+id/textViewArticleTimeSince"
+                    style="@style/ArticleMetaTextTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="false"
-                    android:text="@string/tv_sub_item_date"
                     android:layout_below="@id/imageCoverContainer"
                     android:layout_alignEnd="@id/imageCoverContainer"
+                    android:layout_alignParentEnd="false"
                     android:layout_marginTop="@dimen/margin_x1"
                     android:layout_marginBottom="@dimen/margin_x1"
-                    style="@style/ArticleMetaTextTitle"
-            />
+                    android:text="@string/tv_sub_item_date" />
 
             <TextView
                     android:id="@+id/textViewArticleTitle"
+                    style="@style/ArticlePreviewTextTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/ArticlePreviewTextTitle"
-                    android:maxLines="3"
-                    android:ellipsize="end"
-                    android:text="@string/tv_sub_item_title"
                     android:layout_below="@+id/textViewArticleMinutesRead"
-                    android:layout_alignEnd="@id/imageCoverContainer"
                     android:layout_alignStart="@id/imageCoverContainer"
-            />
+                    android:layout_alignEnd="@id/imageCoverContainer"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:text="@string/tv_sub_item_title" />
 
             <TextView
                     android:id="@+id/textViewArticleContent"
@@ -166,12 +149,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textViewArticleTitle"
-                    android:layout_alignEnd="@id/imageCoverContainer"
                     android:layout_alignStart="@id/imageCoverContainer"
-                    android:text="@string/tv_sub_item_content"
+                    android:layout_alignEnd="@id/imageCoverContainer"
                     android:layout_marginTop="@dimen/margin_x3"
                     android:layout_marginBottom="@dimen/margin_x4"
-            />
+                    android:text="@string/tv_sub_item_content" />
+
+
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerViewVideos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewArticleContent"
+                    android:layout_alignStart="@id/imageCoverContainer"
+                    android:layout_alignEnd="@id/imageCoverContainer"
+                    android:layout_marginTop="@dimen/margin_x3" />
 
 
         </RelativeLayout>

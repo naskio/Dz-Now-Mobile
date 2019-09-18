@@ -22,11 +22,16 @@ import kotlinx.android.synthetic.main.activity_article.textViewArticleMinutesRea
 import kotlinx.android.synthetic.main.activity_article.textViewArticleTitle
 import java.util.*
 import android.content.Intent
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import com.dznow.models.VideoModel
+import com.dznow.recyclers.ArticlePreviewAdapter
+import com.dznow.recyclers.VideoPreviewAdapter
 
 // TODO: add get article API
 // TODO: use get article from API instead (to solve TooLargeException)
 
-class ArticleActivity : AppCompatActivity(),TextToSpeech.OnInitListener,
+class ArticleActivity : AppCompatActivity(), TextToSpeech.OnInitListener,
     TextToSpeech.OnUtteranceCompletedListener {
 
     private var tts: TextToSpeech? = null
@@ -34,6 +39,7 @@ class ArticleActivity : AppCompatActivity(),TextToSpeech.OnInitListener,
     private var text_view_article_title: TextView? = null
     private var text_view_article_content: TextView? = null
     private var isSpeaking: Boolean = false
+    private lateinit var videosRecyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,10 +51,23 @@ class ArticleActivity : AppCompatActivity(),TextToSpeech.OnInitListener,
         val createdAt = intent.getStringExtra("created_at")
         val sourceName = intent.getStringExtra("sourceName")
         val url = intent.getStringExtra("url")
+        val videos = intent.getParcelableArrayListExtra<VideoModel>("videos")
         val source = SourceModel(0, sourceName, "", "", "", "", null)
-        val article = ArticleModel(id, title, content, minutesRead, coverUrl, createdAt, null, source, url)
+        val article =
+            ArticleModel(
+                id,
+                title,
+                content,
+                minutesRead,
+                coverUrl,
+                createdAt,
+                null,
+                source,
+                url,
+                videos
+            )
         setContentView(R.layout.activity_article)
-        var lang = url.substring(1,3)
+        var lang = url.substring(1, 3)
         button_speech = this.buttonSpeech
         if (lang != "fr") {
             button_speech!!.visibility = View.INVISIBLE
@@ -61,7 +80,8 @@ class ArticleActivity : AppCompatActivity(),TextToSpeech.OnInitListener,
         toolbarTitle.text = sourceName
         textViewArticleTitle.text = title
         textViewArticleContent?.text = content
-        textViewArticleMinutesRead.text = String.format(resources.getString(R.string.tv_sub_item_time), minutesRead)
+        textViewArticleMinutesRead.text =
+            String.format(resources.getString(R.string.tv_sub_item_time), minutesRead)
         Picasso.get().load(coverUrl)
             .placeholder(R.drawable.placeholder_gray)
             .fit()
@@ -70,8 +90,7 @@ class ArticleActivity : AppCompatActivity(),TextToSpeech.OnInitListener,
         textViewArticleTimeSince.text = timeSince(createdAt)
         if (Bookmarks.getInstance().isBookmarked(article)) {
             buttonBookmarkSetImage(buttonBookmark, true)
-        }
-        else {
+        } else {
             buttonBookmarkSetImage(buttonBookmark, false)
         }
         buttonBack?.setOnClickListener {
@@ -89,8 +108,7 @@ class ArticleActivity : AppCompatActivity(),TextToSpeech.OnInitListener,
             if (Bookmarks.getInstance().isBookmarked(article)) {
                 Bookmarks.getInstance().unBookmark(article)
                 buttonBookmarkSetImage(buttonBookmark, false)
-            }
-            else {
+            } else {
                 Bookmarks.getInstance().bookmark(article)
                 buttonBookmarkSetImage(buttonBookmark, true)
             }
@@ -100,13 +118,20 @@ class ArticleActivity : AppCompatActivity(),TextToSpeech.OnInitListener,
             intent.putExtra("url", url)
             startActivity(intent)
         }
+
+        // display videos
+        videosRecyclerView = this.findViewById(R.id.recyclerViewVideos) as RecyclerView
+        videosRecyclerView.layoutManager = LinearLayoutManager(this)
+        this.runOnUiThread {
+            videosRecyclerView.adapter = VideoPreviewAdapter(videos)
+        }
+
     }
 
-    private fun buttonBookmarkSetImage (buttonBookmark : ImageButton, checked : Boolean) {
+    private fun buttonBookmarkSetImage(buttonBookmark: ImageButton, checked: Boolean) {
         if (checked) {
             buttonBookmark.setImageResource(R.drawable.ic_outline_bookmark_24px)
-        }
-        else {
+        } else {
             buttonBookmark.setImageResource(R.drawable.ic_outline_bookmark_border_24px)
         }
     }
@@ -116,25 +141,23 @@ class ArticleActivity : AppCompatActivity(),TextToSpeech.OnInitListener,
             // set US English as language for tts
             val result = tts!!.setLanguage(Locale.FRENCH)
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                Log.e("TTS","The Language specified is not supported!")
-            }
-            else {
+                Log.e("TTS", "The Language specified is not supported!")
+            } else {
                 buttonSpeech!!.isEnabled = true
             }
-        }
-        else {
+        } else {
             Log.e("TTS", "Initilization Failed!")
         }
     }
 
     private fun speakOut() {
         if (!isSpeaking) {
-            val text = textViewArticleTitle!!.text.toString() + textViewArticleContent!!.text.toString()
-            tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null,"")
+            val text =
+                textViewArticleTitle!!.text.toString() + textViewArticleContent!!.text.toString()
+            tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")
             button_speech!!.setImageResource(R.drawable.ic_stop_outlined_24dp)
             isSpeaking = true
-        }
-        else {
+        } else {
             tts!!.stop()
             button_speech!!.setImageResource(R.drawable.ic_play_outlined_24dp)
             isSpeaking = false

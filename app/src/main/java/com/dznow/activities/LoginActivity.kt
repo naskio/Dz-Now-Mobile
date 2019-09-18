@@ -72,6 +72,11 @@ class LoginActivity : AppCompatActivity() {
                 this
                 , "Network Error", Toast.LENGTH_SHORT
             ).show()
+//            val intent = Intent(this, MainActivity::class.java)
+//            intent.putExtra("latest", null)
+//            intent.putExtra("categories", null)
+//            startActivity(intent)
+//            finish()
         })
         Log.e("Network Error", "Network")
     }
@@ -91,6 +96,7 @@ class LoginActivity : AppCompatActivity() {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             handleSignInResult(task)
         }
+        homeService(this::showMainActivity, this::showErrorDialog)
     }
 
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
